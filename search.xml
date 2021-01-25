@@ -8,7 +8,7 @@
   <entry>
     <title>Java面试笔记</title>
     <url>/2021/01/23/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p>这是去年准备秋招的时候整理的一些Java面试常见知识点，整体框架主要根据<a href="https://www.nowcoder.com/discuss/experience?tagId=639&order=3&companyId=0&phaseId=0">Java工程师精选面经合集</a>和<a href="https://snailclimb.gitee.io/javaguide/#/?id=%e7%9b%ae%e5%bd%95">JavaGuide</a>两个地方的内容组织起来。各个章节里补充了一些面试时遇到的问题。因为内容是由Word转的markdown。文章里格式可能有部分问题。嗯就这样。</p>
+    <content><![CDATA[<p>这是去年准备秋招的时候整理的一些Java面试常见知识点，整体内容由<a href="https://www.nowcoder.com/discuss/experience?tagId=639&order=3&companyId=0&phaseId=0">Java工程师精选面经合集</a>和<a href="https://snailclimb.gitee.io/javaguide/#/?id=%e7%9b%ae%e5%bd%95">JavaGuide</a>两个地方的常见知识点组织起来。各个章节里补充了一些面试时遇到的问题。因为文章是由Word转的markdown，部分章节里格式可能有问题。嗯就这样。</p>
 <h1 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h1><h2 id="JDK和JRE区别"><a href="#JDK和JRE区别" class="headerlink" title="JDK和JRE区别"></a>JDK和JRE区别</h2><ul>
 <li>JDK： Java Development Kit，开发工具包。提供了编译运行 Java 程序的各种工具，包括编译器、JRE 及常用类库，是 JAVA 核心。</li>
 <li>JRE： Java Runtime Environment，运行时环境，运行 Java 程序的必要环境，包括JVM、核心类库、核心配置工具。</li>
