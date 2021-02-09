@@ -1476,10 +1476,21 @@
 <h2 id="Springboot"><a href="#Springboot" class="headerlink" title="Springboot"></a>Springboot</h2><p>Git/lombok/log4j/</p>
 <h1 id="待解决问题"><a href="#待解决问题" class="headerlink" title="待解决问题"></a>待解决问题</h1><p>ZGC、redis集群模式</p>
 ]]></content>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第一篇博客</title>
+    <url>/2021/01/23/git%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>基础</tag>
+      </tags>
   </entry>
   <entry>
     <title>随笔</title>
-    <url>/2021/01/29/%E9%9A%8F%E7%AC%94%E7%AC%94/</url>
+    <url>/2021/01/29/%E9%9A%8F%E7%AC%94/</url>
     <content><![CDATA[<p>春江潮水连海平，海上明月共潮生。</p>
 <p>滟滟随波千万里，何处春江无月明。</p>
 <p>江流宛转绕芳甸，月照芳林皆似霰。</p>
@@ -1499,5 +1510,8 @@
 <p>斜月沉沉藏海雾，碣石潇湘无限路。</p>
 <p> 不知乘月几人归，落月摇情满江树。</p>
 ]]></content>
+      <tags>
+        <tag>生活</tag>
+      </tags>
   </entry>
 </search>
