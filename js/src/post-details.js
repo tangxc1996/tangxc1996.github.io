@@ -122,6 +122,10 @@ $(document).ready(function () {
   $('.post-toc a').on('click', function (e) {
     e.preventDefault();
     var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+
+    // Fix the bug that you cannot jump to the directory when you click on it.txc
+    targetSelector = decodeURI(this.getAttribute('href'))
+
     var offset = $(targetSelector).offset().top;
 
     hasVelocity ?
