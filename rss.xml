@@ -7,7 +7,7 @@
 
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>唐啸晨的博客</title>
+        <title>悠悠彼行路</title>
         <link>https://blog.tangxc.space/</link>
         <description></description>
         <generator>Hugo 0.87.0 https://gohugo.io/</generator>
@@ -23,15 +23,15 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
         
-        <lastBuildDate>Wed, 08 Sep 2021 21:33:09 &#43;0800</lastBuildDate>
+        <lastBuildDate>Wed, 08 Sep 2021 23:32:25 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://blog.tangxc.space/rss.xml" />
         
         
             <item>
                 <title>go语言备忘录</title>
-                <link>https://blog.tangxc.space/archives/hello-world/</link>
-                <guid isPermaLink="true">https://blog.tangxc.space/archives/hello-world/</guid>
+                <link>https://blog.tangxc.space/it/hello-world/</link>
+                <guid isPermaLink="true">https://blog.tangxc.space/it/hello-world/</guid>
                 <pubDate>Tue, 24 Aug 2021 21:31:49 &#43;0800</pubDate>
                 
                     <author>tangxc.nj@qq.com (Shechem)</author>
@@ -213,8 +213,8 @@
         
             <item>
                 <title>Visual Studio Code远程调试</title>
-                <link>https://blog.tangxc.space/archives/java/</link>
-                <guid isPermaLink="true">https://blog.tangxc.space/archives/java/</guid>
+                <link>https://blog.tangxc.space/it/java/</link>
+                <guid isPermaLink="true">https://blog.tangxc.space/it/java/</guid>
                 <pubDate>Tue, 24 Aug 2021 21:31:49 &#43;0800</pubDate>
                 
                     <author>tangxc.nj@qq.com (Shechem)</author>

@@ -2,9 +2,9 @@
 
 
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
-    <title type="text">唐啸晨的博客</title>
+    <title type="text">悠悠彼行路</title>
     <subtitle type="html"></subtitle>
-    <updated>2021-09-08T21:33:09&#43;08:00</updated>
+    <updated>2021-09-08T23:32:25&#43;08:00</updated>
     <id>https://blog.tangxc.space/</id>
     <link rel="alternate" type="text/html" href="https://blog.tangxc.space/" />
     <link rel="self" type="application/atom&#43;xml" href="https://blog.tangxc.space/atom.xml" />
@@ -18,9 +18,9 @@
     <generator uri="https://gohugo.io/" version="0.87.0">Hugo</generator>
         <entry>
             <title type="text">go语言备忘录</title>
-            <link rel="alternate" type="text/html" href="https://blog.tangxc.space/archives/hello-world/" />
-            <id>https://blog.tangxc.space/archives/hello-world/</id>
-            <updated>2021-09-08T21:23:19&#43;08:00</updated>
+            <link rel="alternate" type="text/html" href="https://blog.tangxc.space/it/hello-world/" />
+            <id>https://blog.tangxc.space/it/hello-world/</id>
+            <updated>2021-09-08T22:54:28&#43;08:00</updated>
             <published>2021-08-24T21:31:49&#43;08:00</published>
             <author>
                     <name>Shechem</name>
@@ -204,9 +204,9 @@
     
         <entry>
             <title type="text">Visual Studio Code远程调试</title>
-            <link rel="alternate" type="text/html" href="https://blog.tangxc.space/archives/java/" />
-            <id>https://blog.tangxc.space/archives/java/</id>
-            <updated>2021-09-08T21:26:19&#43;08:00</updated>
+            <link rel="alternate" type="text/html" href="https://blog.tangxc.space/it/java/" />
+            <id>https://blog.tangxc.space/it/java/</id>
+            <updated>2021-09-08T22:54:28&#43;08:00</updated>
             <published>2021-08-24T21:31:49&#43;08:00</published>
             <author>
                     <name>Shechem</name>
