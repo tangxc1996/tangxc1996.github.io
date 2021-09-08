@@ -2,14 +2,29 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.tangxc.space/posts/hello-world/</loc>
+    <lastmod>2021-09-08T21:26:23+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.tangxc.space/posts/</loc>
+    <lastmod>2021-09-08T21:26:23+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.tangxc.space/</loc>
+    <lastmod>2021-09-08T21:26:41+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.tangxc.space/about/</loc>
+    <lastmod>2021-09-08T21:26:41+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.tangxc.space/archives/hello-world/</loc>
+    <lastmod>2021-09-08T21:23:19+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.tangxc.space/archives/java/</loc>
+    <lastmod>2021-09-08T21:26:19+08:00</lastmod>
+  </url><url>
     <loc>https://blog.tangxc.space/categories/</loc>
   </url><url>
     <loc>https://blog.tangxc.space/tags/</loc>
   </url><url>
-    <loc>https://blog.tangxc.space/</loc>
-    <lastmod>2021-08-25T00:05:23+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.tangxc.space/archieves/</loc>
+    <loc>https://blog.tangxc.space/archives/</loc>
     <lastmod>2021-08-25T00:05:23+08:00</lastmod>
   </url>
 </urlset>
