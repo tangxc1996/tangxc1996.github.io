@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title type="text">唐啸晨的博客</title>
+    <subtitle type="html">MemE is a powerful and highly customizable GoHugo theme for personal blogs.</subtitle>
+    <updated>2021-09-08T16:33:19&#43;08:00</updated>
+    <id>https://blog.tangxc.space/</id>
+    <link rel="alternate" type="text/html" href="https://blog.tangxc.space/" />
+    <link rel="self" type="application/atom&#43;xml" href="https://blog.tangxc.space/atom.xml" />
+    <author>
+            <name>Shechem</name>
+            <uri>https://blog.tangxc.space/</uri>
+            
+                <email>tangxc.nj@qq.com</email>
+            </author>
+    <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights>
+    <generator uri="https://gohugo.io/" version="0.87.0">Hugo</generator>
+</feed>
