@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <title type="text">悠悠彼行路</title>
     <subtitle type="html"></subtitle>
-    <updated>2021-09-08T23:32:25&#43;08:00</updated>
+    <updated>2021-09-10T23:57:39&#43;08:00</updated>
     <id>https://blog.tangxc.space/</id>
     <link rel="alternate" type="text/html" href="https://blog.tangxc.space/" />
     <link rel="self" type="application/atom&#43;xml" href="https://blog.tangxc.space/atom.xml" />
@@ -17,10 +17,10 @@
     <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights>
     <generator uri="https://gohugo.io/" version="0.87.0">Hugo</generator>
         <entry>
-            <title type="text">go语言备忘录</title>
-            <link rel="alternate" type="text/html" href="https://blog.tangxc.space/it/hello-world/" />
-            <id>https://blog.tangxc.space/it/hello-world/</id>
-            <updated>2021-09-08T22:54:28&#43;08:00</updated>
+            <title type="text">docker模拟负载均衡</title>
+            <link rel="alternate" type="text/html" href="https://blog.tangxc.space/it/docker%E6%A8%A1%E6%8B%9F%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" />
+            <id>https://blog.tangxc.space/it/docker%E6%A8%A1%E6%8B%9F%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</id>
+            <updated>2021-09-10T19:46:38&#43;08:00</updated>
             <published>2021-08-24T21:31:49&#43;08:00</published>
             <author>
                     <name>Shechem</name>
@@ -203,11 +203,213 @@
         </entry>
     
         <entry>
+            <title type="text">GEN包自动生成数据库表对应结构体</title>
+            <link rel="alternate" type="text/html" href="https://blog.tangxc.space/it/gen%E5%8C%85%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E5%AF%B9%E5%BA%94%E7%BB%93%E6%9E%84%E4%BD%93/" />
+            <id>https://blog.tangxc.space/it/gen%E5%8C%85%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E5%AF%B9%E5%BA%94%E7%BB%93%E6%9E%84%E4%BD%93/</id>
+            <updated>2021-09-10T19:49:14&#43;08:00</updated>
+            <published>2021-08-12T21:31:49&#43;08:00</published>
+            <author>
+                    <name>Shechem</name>
+                    <uri>https://blog.tangxc.space/</uri>
+                    <email>tangxc.nj@qq.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html">GEN基于GORM实现，是能兼容GORM高效查询架构和开发效率和业务安全性的最新工具。GEN在指定数据库中表名后，可以一键自动映射为对应结构体代码。这里尝试使用GEN来根据数据库表信息来自动生成golang struct。</summary>
+            
+                <content type="html">&lt;p&gt;&lt;a href=&#34;https://github.com/go-gorm/gen&#34;&gt;GEN&lt;/a&gt;基于&lt;a href=&#34;https://github.com/go-gorm/gorm&#34;&gt;GORM&lt;/a&gt;实现，是能兼容GORM高效查询架构和开发效率和业务安全性的最新工具。GEN在指定数据库中表名后，可以一键自动映射为对应结构体代码。这里尝试使用GEN来根据数据库表信息来自动生成golang struct。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;首先在命令行中运行&lt;code&gt;go get -u gorm.io/gen&lt;/code&gt;，并使用&lt;code&gt;import gorm.io/gen&lt;/code&gt;引入gen包；&lt;/li&gt;
+&lt;li&gt;接着编写并运行如下示例代码：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+	&lt;span class=&#34;s&#34;&gt;&amp;#34;gorm.io/driver/mysql&amp;#34;&lt;/span&gt;
+	&lt;span class=&#34;s&#34;&gt;&amp;#34;gorm.io/gen&amp;#34;&lt;/span&gt;
+	&lt;span class=&#34;s&#34;&gt;&amp;#34;gorm.io/gorm&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+&lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;TestGen&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+	&lt;span class=&#34;nx&#34;&gt;g&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;gen&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;NewGenerator&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;gen&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Config&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;OutPath&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;./model&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;})&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;// OutPath内参数用于指定生成struct文件位置
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;  &lt;span class=&#34;nx&#34;&gt;dbConnStr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;root:Aa@123456@tcp(127.0.0.1:3306)/test?charset=utf8mb4&amp;amp;parseTime=True&amp;amp;loc=&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;
+		&lt;span class=&#34;s&#34;&gt;&amp;#34;Local&amp;amp;readTimeout=2000ms&amp;amp;allowNativePasswords=true&amp;#34;&lt;/span&gt;
+	&lt;span class=&#34;nx&#34;&gt;writeDb&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;_&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;gorm&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Open&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;mysql&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Open&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;dbConnStr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;// 获得一个用于操作数据库的gorm对象
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;nx&#34;&gt;g&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;UseDB&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;writeDb&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+	&lt;span class=&#34;nx&#34;&gt;g&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ApplyBasic&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;g&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;GenerateModel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;admin_resource_group&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;// 对照admin_resource_group生成对应的golang struct
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;nx&#34;&gt;g&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ApplyBasic&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;g&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;GenerateModelAs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;admin_resource_info&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;ResourceInfo&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;// 对照admin_resource_group生成对应的结构体名为“ResourceInfo”的golang struct
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;nx&#34;&gt;g&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ApplyBasic&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;g&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;GenerateModelAs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;admin_scope_config&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;ScopeConfig&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;gen&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;FieldIgnore&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;// 对照admin_resource_group生成对应的结构体名为“ResourceInfo”的golang struct，并忽略其中的“id”项
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;nx&#34;&gt;g&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Execute&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;生成文件如下图：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// Code generated by gorm.io/gen. DO NOT EDIT.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// Code generated by gorm.io/gen. DO NOT EDIT.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// Code generated by gorm.io/gen. DO NOT EDIT.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;package&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;model&lt;/span&gt;
+
+&lt;span class=&#34;kd&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;TableNameRoom&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;room&amp;#34;&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;// room
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Room&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+	&lt;span class=&#34;nx&#34;&gt;ID&lt;/span&gt;      &lt;span class=&#34;kt&#34;&gt;int32&lt;/span&gt;  &lt;span class=&#34;s&#34;&gt;`json:&amp;#34;id&amp;#34; gorm:&amp;#34;column:id&amp;#34;`&lt;/span&gt;
+	&lt;span class=&#34;nx&#34;&gt;NameZH&lt;/span&gt;  &lt;span class=&#34;kt&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;`json:&amp;#34;NameZH&amp;#34; gorm:&amp;#34;column:NameZH&amp;#34;`&lt;/span&gt;
+	&lt;span class=&#34;nx&#34;&gt;TagType&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int32&lt;/span&gt;  &lt;span class=&#34;s&#34;&gt;`json:&amp;#34;TagType&amp;#34; gorm:&amp;#34;column:TagType&amp;#34;`&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;// TableName .
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Room&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;TableName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;TableNameRoom&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+            
+            
+            
+            
+            
+                
+                    
+                
+                    
+                
+            
+        </entry>
+    
+        <entry>
+            <title type="text">markdown绘制流程图</title>
+            <link rel="alternate" type="text/html" href="https://blog.tangxc.space/it/markdown%E7%BB%98%E5%88%B6%E6%B5%81%E7%A8%8B%E5%9B%BE/" />
+            <id>https://blog.tangxc.space/it/markdown%E7%BB%98%E5%88%B6%E6%B5%81%E7%A8%8B%E5%9B%BE/</id>
+            <updated>2021-09-10T19:50:15&#43;08:00</updated>
+            <published>2021-08-08T20:12:08&#43;08:00</published>
+            <author>
+                    <name>Shechem</name>
+                    <uri>https://blog.tangxc.space/</uri>
+                    <email>tangxc.nj@qq.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html">引用：mermaid语法  markdown flow流程图示例</summary>
+            
+                <content type="html">&lt;p&gt;引用：&lt;a href=&#34;https://cloud.tencent.com/developer/article/1334691&#34;&gt;mermaid语法 &lt;/a&gt; &lt;a href=&#34;https://www.jianshu.com/p/f28c94cf1204&#34;&gt;markdown flow流程图示例&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;mermaid&#34;&gt;mermaid&lt;/h2&gt;
+&lt;p&gt;通过 mermaid 可以实现以纯文本的方式绘制流程图，序列图，甘特图等。&lt;/p&gt;
+&lt;p&gt;mermaid绘制流程图示例：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34; data-lang=&#34;mermaid&#34;&gt;graph LR;
+a(a)--&amp;gt;b[b] 
+b--&amp;gt;c{c}
+b--&amp;gt;d((d))
+b==&amp;gt;e(e)
+d-.-&amp;gt;f(f)
+f-.-&amp;gt;|text|g(g)
+g==&amp;gt;|&amp;quot;t|e|x|t&amp;quot;|h(h)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;其中主要语法包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;graph TB/TD/BT/RL/LR&lt;/code&gt;:指定流程图前进方法。如：
+&lt;ul&gt;
+&lt;li&gt;TB/TD：top bottom&lt;/li&gt;
+&lt;li&gt;BT：bottom top&lt;/li&gt;
+&lt;li&gt;RL：right left&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;a(A)|[A]|{A}|((A))&lt;/code&gt;: 声明一个显示文本为A的流程框a。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;a--&amp;gt;b|a==&amp;gt;b|a-.-&amp;gt;b|&lt;/code&gt;: 声明一个由流程框a到b的箭头。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;a==&amp;gt;|text|b&lt;/code&gt;: 声明一个包含文本text的箭头，一般作为条件判断箭头使用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;flow&#34;&gt;flow&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-flow&#34; data-lang=&#34;flow&#34;&gt;start_node=&amp;gt;start: 开始框
+inputoutput_node=&amp;gt;inputoutput: 输入输出框
+operation_node=&amp;gt;operation: 操作框
+condition_node=&amp;gt;condition: 条件判断框
+end_node=&amp;gt;end: 结束框
+start_node(right)-&amp;gt;inputoutput_node-&amp;gt;operation_node
+operation_node(right)-&amp;gt;condition_node
+condition_node(no)-&amp;gt;inputoutput_node
+condition_node(yes, bottom)-&amp;gt;end_node
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;start_node=&amp;gt;start: 开始框&lt;/code&gt;: 声明一个开始流程框start_node，内容为“开始框”。流程框有以下几种。
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;start&lt;/code&gt;: 开始框&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;inputoutput&lt;/code&gt;: 输入输出框&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;operation&lt;/code&gt;: 操作框&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;condition&lt;/code&gt;: 条件判断框&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;end&lt;/code&gt;: 结束框&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;subroutine&lt;/code&gt;: 子流程框&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;condition_node(yes, bottom)-&amp;gt;end_node&lt;/code&gt;: 声明一个从&lt;code&gt;condition_node&lt;/code&gt;指向&lt;code&gt;end_node&lt;/code&gt;的箭头，&lt;code&gt;yes&lt;/code&gt;为条件判断框特有的条件分支，&lt;code&gt;bottom|top|left|right&lt;/code&gt;为箭头指向的方向。&lt;code&gt;-&amp;gt;&lt;/code&gt;可以在一个语句中多次使用。&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+            
+            
+            
+            
+            
+                
+                    
+                
+                    
+                
+            
+        </entry>
+    
+        <entry>
             <title type="text">Visual Studio Code远程调试</title>
-            <link rel="alternate" type="text/html" href="https://blog.tangxc.space/it/java/" />
-            <id>https://blog.tangxc.space/it/java/</id>
-            <updated>2021-09-08T22:54:28&#43;08:00</updated>
-            <published>2021-08-24T21:31:49&#43;08:00</published>
+            <link rel="alternate" type="text/html" href="https://blog.tangxc.space/it/vscode%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95/" />
+            <id>https://blog.tangxc.space/it/vscode%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95/</id>
+            <updated>2021-09-10T19:50:42&#43;08:00</updated>
+            <published>2021-07-02T21:31:49&#43;08:00</published>
             <author>
                     <name>Shechem</name>
                     <uri>https://blog.tangxc.space/</uri>
@@ -229,6 +431,1947 @@
 &lt;p&gt;&lt;img src=&#34;https://blog.tangxc.space/Visual_Studio_Code%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95/image-20210815130137566.png&#34; alt=&#34;image-20210815130137566&#34;&gt;&lt;/p&gt;
 &lt;p&gt;由于VSCode操作文件夹时都需要密码，这里建议提前配置好开发机ssh登录密钥。首先在本机使用ssh-keygen命令生成密钥对，运行完成后当前用户目录下会生成一个.ssh文件夹，其中包含私钥文件id_rsa和公钥文件id_rsa.pub。接着将公钥复制到开发机的&lt;code&gt;~/ .ssh/authorized_key&lt;/code&gt;文件中并修改权限。之后重新登录开发机，如果不需要输入密码即为登录成功。&lt;/p&gt;
 &lt;p&gt;配置好上述步骤后即可编写并调试项目。由于VSCode直接操作开发机上的项目文件，当网络较差时会出现明显的延迟现象，因此建议在网络条件较好的情况下使用。在按照VSCode提示安装其它插件后也可以直接在开发机上进行程序调试操作。&lt;/p&gt;
+</content>
+            
+            
+            
+            
+            
+                
+                    
+                
+                    
+                
+            
+        </entry>
+    
+        <entry>
+            <title type="text">VSCode取消unused提示</title>
+            <link rel="alternate" type="text/html" href="https://blog.tangxc.space/it/vscode%E5%8F%96%E6%B6%88unused%E6%8F%90%E7%A4%BA/" />
+            <id>https://blog.tangxc.space/it/vscode%E5%8F%96%E6%B6%88unused%E6%8F%90%E7%A4%BA/</id>
+            <updated>2021-09-10T19:51:48&#43;08:00</updated>
+            <published>2021-07-02T00:00:00&#43;00:00</published>
+            <author>
+                    <name>Shechem</name>
+                    <uri>https://blog.tangxc.space/</uri>
+                    <email>tangxc.nj@qq.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html">vscode 取消 unused 提示</summary>
+            
+                <content type="html">&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/u013401853/article/details/115368980&#34;&gt;vscode 取消 unused 提示&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;使用&lt;code&gt;ctrl&lt;/code&gt;+&lt;code&gt;shift&lt;/code&gt;+&lt;code&gt;p&lt;/code&gt;快捷键打开vscode设置界面&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在打开的命令行中输入&amp;quot;setting&amp;quot;打开setting.json文件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在文件最后加入：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;go.lintFlags&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+  &lt;span class=&#34;s2&#34;&gt;&amp;#34;--disable=U1000&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+            
+            
+            
+            
+            
+                
+                    
+                
+                    
+                
+            
+        </entry>
+    
+        <entry>
+            <title type="text">Java面试笔记</title>
+            <link rel="alternate" type="text/html" href="https://blog.tangxc.space/it/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/" />
+            <id>https://blog.tangxc.space/it/java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/</id>
+            <updated>2021-09-10T19:54:42&#43;08:00</updated>
+            <published>2021-01-23T17:04:07&#43;00:00</published>
+            <author>
+                    <name>Shechem</name>
+                    <uri>https://blog.tangxc.space/</uri>
+                    <email>tangxc.nj@qq.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html">这是去年准备秋招的时候整理的一些Java面试常见知识点，整体内容由Java工程师精选面经合集和JavaGuide两个地方的常见知识点组织起来。各个章节里补充了一些面试时遇到的问题。因为文章是由Word转的markdown，部分章节里格式可能有问题。嗯就这样。</summary>
+            
+                <content type="html">&lt;p&gt;这是去年准备秋招的时候整理的一些Java面试常见知识点，整体内容由&lt;a href=&#34;https://www.nowcoder.com/discuss/experience?tagId=639&amp;amp;order=3&amp;amp;companyId=0&amp;amp;phaseId=0&#34;&gt;Java工程师精选面经合集&lt;/a&gt;和&lt;a href=&#34;https://snailclimb.gitee.io/javaguide/#/?id=%e7%9b%ae%e5%bd%95&#34;&gt;JavaGuide&lt;/a&gt;两个地方的常见知识点组织起来。各个章节里补充了一些面试时遇到的问题。因为文章是由Word转的markdown，部分章节里格式可能有问题。嗯就这样。&lt;/p&gt;
+&lt;h1 id=&#34;java基础&#34;&gt;Java基础&lt;/h1&gt;
+&lt;h2 id=&#34;jdk和jre区别&#34;&gt;JDK和JRE区别&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;JDK： Java Development Kit，开发工具包。提供了编译运行 Java 程序的各种工具，包括编译器、JRE 及常用类库，是 JAVA 核心。&lt;/li&gt;
+&lt;li&gt;JRE： Java Runtime Environment，运行时环境，运行 Java 程序的必要环境，包括JVM、核心类库、核心配置工具。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;即&lt;strong&gt;JRE用于运行Java程序，JDK用于开发Java程序，JDK包含JRE。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;java基本数据类型及其大小&#34;&gt;JAVA基本数据类型及其大小&lt;/h2&gt;
+&lt;p&gt;Java中基本数据类型包括&lt;strong&gt;字符类型，布尔类型和数值类型&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;字符型：char&lt;/li&gt;
+&lt;li&gt;布尔型：boolean&lt;/li&gt;
+&lt;li&gt;数值型：包括byte（1字节），short（2字节），int（4字节），long（8字节），float（4字节），double（8字节）。其中又可以细分为整型和浮点型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/111ed46b2a83eff010d771b745bd143d.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/doit8791/archive/2012/05/25/2517448.html&#34;&gt;Java基本数据类型总结&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;java自动装箱拆箱&#34;&gt;Java自动装箱/拆箱&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;自动装箱：将基本数据类型包装为一个包装类对象，例如向一个泛型为 Integer的集合添加 int 元素。&lt;/li&gt;
+&lt;li&gt;自动拆箱：将一个包装类对象转换为一个基本数据类型，例如将一个包装类对象赋值给一个基本数据类型的变量。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;java按值调用和引用调用&#34;&gt;Java按值调用和引用调用&lt;/h2&gt;
+&lt;p&gt;按值调用指&lt;strong&gt;方法接收调用者提供的值&lt;/strong&gt;，按引用调用指&lt;strong&gt;方法接收调用者提供的变量地址&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;Java中传递基本数据类型和引用数据类型均为按值调用。因此传递引用数据类型时可以改变引用指向的对象内容，但不能改变引用指向。&lt;/p&gt;
+&lt;h2 id=&#34;string类不能被继承原因&#34;&gt;String类不能被继承原因&lt;/h2&gt;
+&lt;p&gt;String类不可以被继承，String类的声明有包含有final&lt;/p&gt;
+&lt;h2 id=&#34;stringstringbufferstringbuilder区别&#34;&gt;String，Stringbuffer，StringBuilder区别。&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;String字符内容不可变，但Stringbuffer和StringBuilder里保存字符内容可变&lt;/li&gt;
+&lt;li&gt;StringBuilder线程不安全，Stringbuffer线程安全&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;字符串拼接方式&#34;&gt;字符串拼接方式&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/p/0245bbd977eb&#34;&gt;关于 Java字符串拼接的几种方式以及性能比较&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;直接用 + ，底层用 StringBuilder 实现。如果在循环中使用 +拼接，相当于不断创建新的 StringBuilder 对象再转换成 String 对象，效率差。&lt;/li&gt;
+&lt;li&gt;使用 String 的 concat 方法，该方法中使用 Arrays.copyOf 创建一个新的字符数组buf 并将当前字符串value 数组的值拷贝到 buf 中，buf 长度 = 当前字符串长度 +拼接字符串长度。之后调用 getChars 方法使用 System.arraycopy将拼接字符串的值也拷贝到 buf 数组，最后用 buf 作为构造参数 new 一个新的String 对象返回。效率稍高于直接使用 +。&lt;/li&gt;
+&lt;li&gt;使用 StringBuilder 或 StringBuffer，两者的 append 方法都继承自AbstractStringBuilder，该方法首先使用 Arrays.copyOf确定新的字符数组容量，再调用 getChars 方法使用 System.arraycopy将新的值追加到数组中。StringBuilder 是 JDK5引入的，效率高但线程不安全。StringBuffer 使用 synchronized 保证线程安全。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;此外，字符串类型使用字面量时只创建一个常量池中的常量，使用 new时如果常量池中没有该值就会在常量池中新创建，再在堆中创建一个对象引用常量池中常量。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/kenhins/article/details/78538793&#34;&gt;String a=&amp;ldquo;ab&amp;rdquo; 与String a = new String(&amp;ldquo;ab&amp;rdquo;);的区别&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;arraylist和linkedlist区别&#34;&gt;ArrayList和LinkedList区别。&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;ArrayList是基于动态数组的实现，而LinkedList是基于链表的实现&lt;/li&gt;
+&lt;li&gt;随机访问set和get的效率，ArrayList要高于LinkedList&lt;/li&gt;
+&lt;li&gt;添加add和删除remove的效率，只能根据具体元素的位置确定谁快&lt;/li&gt;
+&lt;li&gt;两者都是线程不安全的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;copyonwritearraylist原理&#34;&gt;CopyOnWriteArrayList原理&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/dolphin0520/p/3938914.html&#34;&gt;Java并发编程：并发容器之CopyOnWriteArrayList（转载）&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;CopyOnWrite容器即定时复制的容器。即向容器中添加元素时，不直接往当前容器添加，而是先复制一份容器，再向新容器中添加元素。添加完元素后，再将原容器的引用指向新的容器。此外，写的过程中会对容器使用ReentrantLock加锁。这样可以做到并发读取。&lt;/p&gt;
+&lt;p&gt;CopyOnWrite容器适合读多写少的场合，单个添加元素时效率极低。&lt;/p&gt;
+&lt;p&gt;CopyOnWrite容器 volatile （txc待补充部分）&lt;/p&gt;
+&lt;h2 id=&#34;arrayssort实现&#34;&gt;Arrays.sort()实现&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/xlgen157387/article/details/79863301&#34;&gt;Java提供的排序算法是怎么实现的&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://wuukee.github.io/posts/dual.html&#34;&gt;双轴快排原理解析&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/12fb192dafa61c9064db75464ef867f9.png&#34; alt=&#34;这里写图片描述&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;类的实例化顺序和类的数据执行顺序&#34;&gt;类的实例化顺序和类的数据执行顺序&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;类的实例化顺序：加载、连接、初始化、实例化&lt;/li&gt;
+&lt;li&gt;类数据的执行顺序：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;父类的静态变量，静态代码块（先声明的先执行&lt;/li&gt;
+&lt;li&gt;子类的静态变量，静态代码块（同上&lt;/li&gt;
+&lt;li&gt;父类的变量和代码块&lt;/li&gt;
+&lt;li&gt;父类的构造函数&lt;/li&gt;
+&lt;li&gt;子类的变量和代码块&lt;/li&gt;
+&lt;li&gt;子类的构造函数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;总结：&lt;strong&gt;静态数据执行优先级最高；父类执行优先于子类，代码块优先于构造函数，先声明的优先于后声明的。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;map种类及内部实现&#34;&gt;Map种类及内部实现&lt;/h2&gt;
+&lt;p&gt;Java中Map类包括HashMap/HashTable/LinkedHashMap/TreeMap&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;HashMap&lt;/li&gt;
+&lt;li&gt;HashTable，相对于HashMap，该数据结构线程安全。&lt;/li&gt;
+&lt;li&gt;LinkedHashMap，该数据结构能保证插入数据的有序性&lt;/li&gt;
+&lt;li&gt;TreeMap，能够按照SortMap接口对记录进行排序。基于红黑树实现，不同于HashMap，TreeMap依靠Comparable或 Comparator进行去重。&lt;/li&gt;
+&lt;li&gt;CurrentHashMap，&lt;strong&gt;jdk1.8前采用分段锁（代价高），之后采用CAS实现&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;HashMap内部原理：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;JDK1.8以前：数组加链表，hashCode后经扰动函数处理后得hash值，hash值与(n-1)相与得到存放地址。若存放地址有元素，且key相同则直接覆盖。否则用拉链法加在后面。&lt;/li&gt;
+&lt;li&gt;JDK1.8以后：如果某key的拉链长度过长（大于8），则会将拉链链表转化为红黑树。&lt;/li&gt;
+&lt;li&gt;HashMap初始大小为16。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;java中的hashset内部工作原理&#34;&gt;Java中的HashSet内部工作原理&lt;/h2&gt;
+&lt;p&gt;HashSet是基于 HashMap 实现的，HashSet 底层使用 HashMap 来保存所有元素，因此HashSet 的实现比较简单，相关 HashSet 的操作，基本上都是直接调用底层 HashMap的相关方法来完成。当往set里添加元素时，其值默认为PRESENT。&lt;/p&gt;
+&lt;p&gt;此外，如果遇到添加重复值HashMap会用新值替换旧值，而HashSet不会。也就是说HashMap的旧值会被覆盖（&lt;strong&gt;使用put方法添加会返回旧值&lt;/strong&gt;），而HashSet的旧值不会被覆盖（&lt;strong&gt;使用add添加会返回false&lt;/strong&gt;）。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://wiki.jikexueyuan.com/project/java-collection/hashmap.html&#34;&gt;HashMap的实现原理&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/u011649691/article/details/80842985&#34;&gt;HashMap和HashSet添加重复值区别的源码分析&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;抽象和接口类区别&#34;&gt;抽象和接口类区别&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;抽象方法比接口速度快。&lt;/li&gt;
+&lt;li&gt;编写代码时尽量选用接口，抽象类仅当需要提供共性功能时使用。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/6ee912e2207e696e02d1608d72a55cae.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;类之间的关系&#34;&gt;类之间的关系&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/kevin_darkelf/article/details/11371353&#34;&gt;继承、实现、依赖、关联、聚合、组合的联系与区别&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;继承、实现、依赖、关联、聚合、组合的定义与区别，这其中关系依据类间联系强弱可能存在争议：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;继承&lt;/strong&gt;：指的是一个类（称为子类、子接口）继承另外的一个类（称为父类、父接口）的功能。在Java中使用extends明确标明。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实现&lt;/strong&gt;：指的是一个class类实现interface接口（可以是多个）的功能。在Java中此类关系通过关键字implements明确标识，在设计时一般没有争议性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;依赖&lt;/strong&gt;：类A使用到了另一个类B。表现在代码层面，为类B作为参数被类A在某method方法中使用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;关联&lt;/strong&gt;：体现的是两个类、或者类与接口之间语义级别的一种强依赖关系，一般是长期性的，而且双方的关系一般是平等的、关联可以是单向、双向的；表现在代码层面，为被关联类B以类属性的形式出现在关联类A中。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;聚合&lt;/strong&gt;：聚合是关联关系的一种特例，他体现的是整体与部分、拥有的关系。此时整体与部分之间是可分离的，区别与组合关系，各相关类可以具有各自的生命周期。表现在代码层面，和关联关系是一致的，只能从语义级别来区分；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;组合&lt;/strong&gt;：聚合是关联关系的一种特例，他体现的是整体与部分、拥有的关系。此时整体与部分之间是不可分离的，区别与聚合关系，整体的生命周期结束也就意味着部分的生命周期结束。表现在代码层面，和关联关系是一致的，只能从语义级别来区分；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;相对于前两种关系，后四种关系相对难以区分。但总的来说，后几种关系所表现的强弱程度依次为：组合&amp;gt;聚合&amp;gt;关联&amp;gt;依赖。&lt;/p&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;依赖：(person) -&amp;gt;(use) (computer)&lt;/li&gt;
+&lt;li&gt;关联：(you) -&amp;gt;(friend) (me)&lt;/li&gt;
+&lt;li&gt;聚合：(family) -&amp;gt; (child)&lt;/li&gt;
+&lt;li&gt;组合：(person)-&amp;gt;(brain)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;io模型分类niobio模型&#34;&gt;IO模型分类，nio/bio模型&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://juejin.im/post/5cce5019e51d453a506b0ebf&#34;&gt;深入理解java I/O模型（关于同步异步I/O）&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;同步I/O&lt;/strong&gt;：每个请求必须逐个地被处理，一个请求的处理会导致整个流程的暂时等待。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;异步I/O&lt;/strong&gt;：多个请求可以并发地执行，一个请求或者任务的执行不会导致整个流程的暂时等待。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;阻塞I/O&lt;/strong&gt;：某个请求发出后，由于该请求操作需要的条件不满足，请求操作一直阻塞，不会返回，直到条件满足。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;非阻塞I/O&lt;/strong&gt;：请求发出后，若该请求需要的条件不满足，则立即返回一个标志信息告知条件不满足，而不会一直等待。一般需要通过循环判断请求条件是否满足来获取请求结果。&lt;/p&gt;
+&lt;p&gt;同步和异步主要针对多任务情况，阻塞和非阻塞针对单任务情况。&lt;/p&gt;
+&lt;p&gt;IO模型包括阻塞型IO、非阻塞型IO、多路复用型IO，信号驱动型IO、异步IO。&lt;/p&gt;
+&lt;p&gt;BIO：使用BIO通信模型的服务端，通过一个Acceptor线程监听客户端。监听到连接请求后为每一个客户端创建一个新的线程链路处理，处理完成通过输出流回应客户端，线程消耗。BIO是典型一对一答模型。&lt;/p&gt;
+&lt;p&gt;NIO核心组件：&lt;strong&gt;Channels、Buffers、Selectors&lt;/strong&gt; 。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Buffer本质是一块内存，连接发送线程和channel。有三属性包括位置、容量和限制。&lt;/li&gt;
+&lt;li&gt;Channel连接buffer，从Buffer中读写数据。&lt;/li&gt;
+&lt;li&gt;Selector非阻塞，用于实现一个线程管理多个channel，只要将channel注册到selector中即可，可以调用select()获取已经准备好的channel。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;NIO工作流程：reactor通过select监控连接事件，收到事件后通过dispatch分发。连接事件交给acceptor处理，其它事件会调用相应的handler处理。&lt;/p&gt;
+&lt;p&gt;区别与BIO，&lt;strong&gt;NIO面向缓冲区，而BIO面向流&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/elricboa/article/details/78588297&#34;&gt;NIO模型相关API介绍&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;BIO：同步阻塞&lt;/li&gt;
+&lt;li&gt;NIO：同步非阻塞&lt;/li&gt;
+&lt;li&gt;AIO：异步非阻塞，是基于事件和回调机制实现的，也就是应用操作之后会直接返回，不会堵塞在那里。当后台处理完成，操作系统会通知相应的handler进行后续的操作。Handler中会读取、解码、计算、编码、最后返回处理结果。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/cthon/p/10565552.html&#34;&gt;高性能IO之reactor模式&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Rector核心组件：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Reactor：负责响应事件，将事件分发绑定了该事件的Handler处理&lt;/li&gt;
+&lt;li&gt;Handler：事件处理器，绑定了某类事件，负责执行对应事件的任务对事件进行处理&lt;/li&gt;
+&lt;li&gt;Acceptor：Handler的一种，绑定了 connect事件，当客户端发起connect请求时，Reactor会将accept事件分发给Acceptor处理。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Reactor多线程模型：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/59e97d44a62bb6f048a64ce4188499fe.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;改进：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;将handler的运行通过线程池进行，使用多线程进行业务处理。&lt;/li&gt;
+&lt;li&gt;将reactor分为mainReactor及subReactor，mainReactor仍然负责监听连接，由subReactor负责建立连接和读写数据。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;反射原理反射创建类实例的方式&#34;&gt;反射原理，反射创建类实例的方式&lt;/h2&gt;
+&lt;p&gt;在运行状态中，对于任意一个类都能知道它的所有属性和方法，对于任意一个对象都能调用它的任意方法和属性，这种动态获取信息及调用对象方法的功能称为反射。缺点是破坏了封装性以及泛型约束。&lt;/p&gt;
+&lt;p&gt;反射主要是通过java.lang.Class类来指向一个类型信息，通过Class对象来获取类里所有的内部信息。框架中大量使用反射。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://juejin.im/post/5b2f8bd2f265da59b457cf47&#34;&gt;反射的基本原理&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;object类的方法&#34;&gt;Object类的方法&lt;/h2&gt;
+&lt;p&gt;Equals/hashCode/toString/clone/finalize/getClass/(wait/notify/notifyAll)&lt;/p&gt;
+&lt;h2 id=&#34;java-class类&#34;&gt;Java Class类&lt;/h2&gt;
+&lt;p&gt;Class类中保存了对象所属类的相关结构和信息。可以使用下面方法获取Class对象&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;类名.Class&lt;/li&gt;
+&lt;li&gt;对象.getClass()&lt;/li&gt;
+&lt;li&gt;Class.forName(类全名)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;可以使用Class对象的newInstance()来实例化一个对应类的对象。初始化方法为调用无参的初始化方法。&lt;/p&gt;
+&lt;h2 id=&#34;内部类的分类&#34;&gt;内部类的分类&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/dolphin0520/p/3811445.html&#34;&gt;Java内部类详解&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;成员内部类&lt;/strong&gt;：最普通的内部类，定义位于一个类的内部，类似于类的一个成员。成员内部类可以访问外部类的所有成员属性和成员方法。如果要创建成员内部类的对象，必须首先创建一个外部类对象。然后通过外部类对象来new内部类对象。例：&lt;/p&gt;
+&lt;p&gt;Outter outter = new Outter(); Outter.Inner inner = outter.new Inner();&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;局部内部类&lt;/strong&gt;：定义在方法或作用域里的类，只能在方法或者作用域内访问。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;匿名内部类&lt;/strong&gt;：定义在方法参数内的类&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;静态内部类&lt;/strong&gt;：属于外部类，只加载一次。作用域仅在包内，可通过&lt;strong&gt;外部类名.内部类名&lt;/strong&gt;直接访问，类内只能访问外部类所有静态属性和方法，但不依赖于外部类。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;classforname和classloader区别-&#34;&gt;Class.forName和ClassLoader区别 。&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/p/2dbfec55c987&#34;&gt;Class.forName和ClassLoader区别&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Class.forName除了将类的.class文件加载到jvm中之外，还会对类进行解释，可以通过参数控制是否执行类中的static块。&lt;/li&gt;
+&lt;li&gt;classloader只将.class文件加载到jvm中，不会执行static中的内容，只有在newInstance才会去执行static块。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;classloader作用&#34;&gt;ClassLoader作用&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://juejin.im/post/5c04892351882516e70dcc9b&#34;&gt;Java ClassLoader详解&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Class字节码：本质就是一个字节数组 byte[]，可以来自于磁盘文件*.class，也可以是 jar 包里的 *.class，也可以来自远程服务器提供的字节流。&lt;/li&gt;
+&lt;li&gt;延迟加载：程序在运行的过程中会逐渐遇到很多不认识的新类，这时候就会调用ClassLoader 来加载这些类。加载完成后就会将 Class 对象存在 ClassLoader里面，下次就不需要重新加载了。&lt;/li&gt;
+&lt;li&gt;ClassLoader传递性：遇到未知类时，使用调用者 Class 对象的 ClassLoader来加载当前未知的类。&lt;/li&gt;
+&lt;li&gt;三个重要ClassLoader
+(BootstrapClassLoader：$JAVA_HOME/lib/rt.jar、ExtensionClassLoader：$JAVA_HOME/lib/ext/*.jar、AppClassLoader：编写代码及第三方jar包)&lt;/li&gt;
+&lt;li&gt;（位于不同 ClassLoader 中名称一样的类实际上是不同的类）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;加载类的方式&#34;&gt;加载类的方式&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;启动应用时由JVM初始化加载&lt;/li&gt;
+&lt;li&gt;通过Class.forName()方法加载&lt;/li&gt;
+&lt;li&gt;通过ClassLoader.loadClass()加载&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;动态代理实现方式及其优缺点&#34;&gt;动态代理实现方式及其优缺点&lt;/h2&gt;
+&lt;p&gt;若代理类在程序运行前就已经存在，那么这种代理方式被称为静态代理。静态代理可以通过聚合来实现，让代理类持有一个委托类的引用即可。&lt;/p&gt;
+&lt;p&gt;代理类在程序运行时创建的代理方式被称为动态代理。使用动态代理时，我们需要定义一个位于代理类与委托类之间的中介类，这个中介类被要求实现InvocationHandler接口。当调用代理类对象的方法时，这个调用会转到invoke方法中。动态代理关系由两组静态代理关系组成。&lt;/p&gt;
+&lt;p&gt;其它：代理模式：代理模式特点是代理类和实际业务类实现同一个接口（或继承同一父类），代理对象持有一个实际对象的引用，外部调用时操作的是代理对象，而在代理对象的内部实现中又会去调用实际对象的操作。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://juejin.im/post/5ad3e6b36fb9a028ba1fee6a&#34;&gt;Java动态代理&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/HEYUTAO007/article/details/49738887&#34;&gt;Java动态代理的两种实现方式&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;jdk动态代理实现&lt;/strong&gt;：由内部反射机制实现。通过让target类和代理类实现同一接口，代理类持有target对象，来达到方法拦截的作用。使用InvocationHandler接口。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;cglib动态代理实现&lt;/strong&gt;：底层使用ASM在内存中动态的生成被代理类的子类，使用CGLIB即使代理类没有实现任何接口也可以实现动态代理功能。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;两者区别：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;jdk动态代理是由java内部的反射机制来实现的，cglib动态代理底层则是借助asm来实现的。&lt;/li&gt;
+&lt;li&gt;反射机制在生成类的过程中比较高效，而asm在生成类之后的相关执行过程中比较高效。&lt;/li&gt;
+&lt;li&gt;jdk动态代理的应用前提，必须是目标类基于统一的接口。Cglib动态代理不需要。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;cglib原理和特点&#34;&gt;Cglib原理和特点&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;CGlib原理：动态生成一个要代理类的子类，子类重写要代理的类的所有不是final的方法。在子类中采用方法拦截的技术拦截所有父类方法的调用，织入横切逻辑。&lt;/li&gt;
+&lt;li&gt;CGlib底层：使用字节码处理框架ASM，来转换字节码并生成新的类。不鼓励直接使用ASM，因为它要求你必须对JVM内部结构包括class文件的格式和指令集都很熟悉。&lt;/li&gt;
+&lt;li&gt;CGlib缺点：对于final方法，无法进行代理。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/zghwaicsdn/article/details/50957474&#34;&gt;CGlib介绍与原理&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;final用途&#34;&gt;final用途&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;修饰类：表明这个类不能被继承。注意final类中的所有成员方法都会被隐式地指定为final方法。尽量不要将类设计为final类。&lt;/li&gt;
+&lt;li&gt;修饰方法：方法在子类中不会被覆盖。类的private方法会隐式地被指定为final方法。&lt;/li&gt;
+&lt;li&gt;修饰变量：对于final变量，如果是基本数据类型的变量，则其数值一旦在初始化之后便不能更改；&lt;strong&gt;如果是引用类型的变量，则在对其初始化之后便不能再让其指向另一个对象。&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;当final修饰变量时，static变量必须在声明时初始化，普通成员变量可以在构造方法中初始化。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://juejin.im/post/6844903667494027271&#34;&gt;Final关键字深入解析&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;三种单例模式实现&#34;&gt;三种单例模式实现。&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/itachi85/article/details/50510124&#34;&gt;单例模式的七种写法&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;饿汉模式&lt;/p&gt;
+&lt;p&gt;懒汉模式（双重检查+volatile）（一检空为减少访问同步块提高效率，二检为是否已执行到，volatile防止指令重排序让未初始化对象被调用）&lt;/p&gt;
+&lt;p&gt;静态内部类：静态类不用先创建外部类。使用不需要外部类实例；而非静态就必须先实例化&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Singleton&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+   &lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Singleton&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(){}&lt;/span&gt;
+   &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Singleton&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;getInstance&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(){&lt;/span&gt;
+      &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SingletonHolder&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;sInstance&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+   &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+   &lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;SingletonHolder&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+      &lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;final&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Singleton&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sInstance&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Singleton&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+   &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;枚举类&lt;/strong&gt;：枚举类型是线程安全的，并且只会装载一次。可以使用该特性来实现模式（推荐）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;enum&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Singleton&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;INSTANCE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;final&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SingletonObject7&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;instance&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;Singleton&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(){&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;instance&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SingletonObject7&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SingletonObject7&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;getInstance&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(){&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;instance&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SingletonObject7&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;getInstance&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(){&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Singleton&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;INSTANCE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getInstance&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;如何在父类中为子类自动完成所有的hashcode和equals实现这么做有何优劣&#34;&gt;如何在父类中为子类自动完成所有的hashcode和equals实现？这么做有何优劣。&lt;/h2&gt;
+&lt;h2 id=&#34;请结合oo设计理念谈谈访问修饰符publicprivateprotecteddefault在应用设计中的作用&#34;&gt;请结合OO设计理念，谈谈访问修饰符public、private、protected、default在应用设计中的作用。&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/f332ab4d62e96d781db2394b24a5dc11.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;深拷贝和浅拷贝区别&#34;&gt;深拷贝和浅拷贝区别。&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;浅拷贝是按位拷贝对象，它会创建一个新对象，如果属性是基本类型，拷贝的就是基本类型的值；如果属性是内存地址（引用类型），拷贝的就是内存地址。&lt;/li&gt;
+&lt;li&gt;深拷贝对基本数据类型进行值传递，对引用数据类型，创建一个新的对象，并复制其内容。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;数组和链表数据结构区别及其各自的时间复杂度&#34;&gt;数组和链表数据结构区别，及其各自的时间复杂度。&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/52440208&#34;&gt;数组与链表的区别&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;逻辑结构、物理结构、访问、修改、内存管理&lt;/p&gt;
+&lt;h2 id=&#34;error和exception的区别checkedexceptionruntimeexception的区别&#34;&gt;error和exception的区别，CheckedException，RuntimeException的区别。&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/065fb2c53472e0977e8ff3e8ac933bf7.png&#34; alt=&#34;https://camo.githubusercontent.com/23967dd6ade49d653866e82054ffb148063836a5/68747470733a2f2f696d676b722e636e2d626a2e7566696c656f732e636f6d2f31393937303363652d613162362d343936382d396562302d3136316138323137353037652e706e67&#34;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;checked
+Exception：&lt;strong&gt;代表程序不能直接控制的无效外界情况&lt;/strong&gt;（如用户输入，数据库访问，网络异常，文件访问和丢失等），除了Error和RuntimeException及其子类之外的异常，需要try catch处理或throws声明抛出异常。&lt;/li&gt;
+&lt;li&gt;Unchecked
+Exception：&lt;strong&gt;指的是程序设计bug或逻辑错误，并且在运行时无法恢复&lt;/strong&gt;，包括系统异常，语法上不需要声明抛出异常。&lt;/li&gt;
+&lt;li&gt;Error：&lt;strong&gt;一般是指与虚拟机相关的问题&lt;/strong&gt;，如系统崩溃，虚拟机错误，内存空间不足，方法调用栈溢等。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;常见运行时异常&#34;&gt;常见运行时异常。&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;NullPointerException - 空指针引用异常&lt;/li&gt;
+&lt;li&gt;ClassCastException - 类型强制转换异常。&lt;/li&gt;
+&lt;li&gt;IllegalArgumentException - 传递非法参数异常。&lt;/li&gt;
+&lt;li&gt;ArithmeticException - 算术运算异常&lt;/li&gt;
+&lt;li&gt;ArrayStoreException - 向数组中存放与声明类型不兼容对象异常&lt;/li&gt;
+&lt;li&gt;IndexOutOfBoundsException - 下标越界异常&lt;/li&gt;
+&lt;li&gt;NegativeArraySizeException - 创建一个大小为负数的数组错误异常&lt;/li&gt;
+&lt;li&gt;NumberFormatException - 数字格式异常&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;双亲委派机制不能加载新建的包名相同的包&#34;&gt;双亲委派机制不能加载新建的包名相同的包&lt;/h2&gt;
+&lt;p&gt;如果包名相同不可以，因为根据类加载的双亲委派机制，会去加载父类，父类发现冲突了String就不再加载了，但是如果包的名不同就可以重写。&lt;/p&gt;
+&lt;h2 id=&#34;javalangobject对象hashcode和equals方法&#34;&gt;java.lang.Object对象hashCode和equals方法&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/xlgen157387/article/details/63683882?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&#34;&gt;为什么要重写hashCode()方法和equals()方法以及如何进行重写&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;在定义类时，我们经常需要判断两个对象是否相等，当希望两个不同对象的某些属性值相同时就认为他们相同，所以我们要重写equals()方法。而默认的equals方法只能比较两个引用所指向的对象内存地址是否一致。此外，当需要将自定义类放入map或者set中时，也需要重写equals方法。&lt;/p&gt;
+&lt;h2 id=&#34;泛型的作用泛型擦除&#34;&gt;泛型的作用，泛型擦除&lt;/h2&gt;
+&lt;p&gt;参数化类型，提高方法利用性。把类型明确的工作推迟到创建对象或调用方法的时候才去明确的特殊的类型。&lt;/p&gt;
+&lt;p&gt;泛型作用：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;提高代码复用性&lt;/li&gt;
+&lt;li&gt;减少强制类型转换&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;泛型擦除：Java编译后的字节码文件中不包含泛型类型信息，因为虚拟机没有泛型类型对象。在不指定泛型的情况下，泛型变量的类型为该方法中的几种类型的同一父类的最小级，直到Object。&lt;/p&gt;
+&lt;p&gt;Java 中的泛型基本上都是在编译器这个层次来实现的。在生成的 Java字节代码中是不包含泛型中的类型信息的。泛型擦除在编译器编译的时候发生。&lt;/p&gt;
+&lt;h2 id=&#34;序列化相关介绍&#34;&gt;序列化相关介绍&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://juejin.im/post/5ce3cdc8e51d45777b1a3cdf&#34;&gt;Java序列化&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;什么是序列化
+&lt;ul&gt;
+&lt;li&gt;序列化：将对象写入到IO流中&lt;/li&gt;
+&lt;li&gt;反序列化：从IO流中恢复对象
+所有需要保存到磁盘或者在网上传输的java对象都必须是可序列化的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;怎么序列化：
+&lt;ul&gt;
+&lt;li&gt;继承Serializable接口或者Externalizable接口&lt;/li&gt;
+&lt;li&gt;保证类内部所有引用类型均可序列化
+（使用transient关键字选择不需要序列化的字段。）&lt;/li&gt;
+&lt;li&gt;使用ObjectOutputStream对对象进行序列化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;序列化存在的问题下午 4:14 21/1/24
+&lt;ul&gt;
+&lt;li&gt;java序列化算法不会重复序列化同一个对象，只会记录已序列化对象的编号。如果序列化一个可变对象（对象内的内容可更改）后，更改了对象内容，再次序列化，并不会再次将此对象转换为字节序列，而只是保存序列化编号。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;反序列化存在的问题
+&lt;ul&gt;
+&lt;li&gt;如果Java应用可以对任意数据做了反序化处理，那么攻击者可以通过构造恶意输入，让反序列化产生非预期的对象，非预期的对象在产生过程中就有可能带来任意代码执行。可以限定可以进行反序列化的对象类型来减少漏洞影响。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;java8新特性&#34;&gt;java8新特性&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/p/5b800057f2d8&#34;&gt;Java8新特性&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Lambda表达式&lt;/li&gt;
+&lt;li&gt;接口的默认方法和静态方法&lt;/li&gt;
+&lt;li&gt;方法引用
+（&lt;a href=&#34;https://blog.csdn.net/TimHeath/article/details/71194938&#34;&gt;Java8特性之方法引用&lt;/a&gt;）（方法引用初始化，accept方法接收参数）&lt;/li&gt;
+&lt;li&gt;重复注解及增加注解使用场景&lt;/li&gt;
+&lt;li&gt;更好的类型推断 （泛型和lambda）&lt;/li&gt;
+&lt;li&gt;引入一些新的库文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;java注解和元注解&#34;&gt;Java注解和元注解&lt;/h2&gt;
+&lt;p&gt;注解是一种标记，使类或接口附加额外信息，帮助编译器和 JVM 完成一些特定功能，例如@Override 标识一个方法是重写方法。&lt;/p&gt;
+&lt;p&gt;元注解则是可以注解到别的注解上的注解。被注解的注解称为组合注解。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Java.lang中注解
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;@Override&lt;/strong&gt;：检查方法是否为重写方法（报编译错误&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;@Deprecated&lt;/strong&gt;：标记过时方法（报编译警告&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;@SuppressWarnings&lt;/strong&gt;：忽略注解中声明警告&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Java.lang.annotation中注解&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;java-spi&#34;&gt;Java SPI&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://developer.aliyun.com/article/640161&#34;&gt;高级开发必须理解的Java中SPI机制&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Spi(service provider interface)，本质是一种典型的面向接口编程。目地是在不修改代码的情况下，替换掉代码里接口的具体实现类。核心思想是解耦。&lt;/p&gt;
+&lt;p&gt;实现步骤：定义一组接口，写出接口的多个实现。建立services目录，目录中新增以接口命名的文件，内容是所有要应用的实现类。最后在代码中使用ServiceLoader来加载配置文件，即可得到所有存在的接口实现。&lt;/p&gt;
+&lt;h1 id=&#34;jvm&#34;&gt;JVM&lt;/h1&gt;
+&lt;h2 id=&#34;jvm运行时数据区域&#34;&gt;JVM运行时数据区域&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;程序计数器&lt;/strong&gt;：是当前线程正在执行的字节码的行号指示器。该区域不会有OutOfMemoryError。本地方法中计数器值为空。每个线程都会有自己独立的程序计数器。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Java虚拟机栈&lt;/strong&gt;：线程私有区域，每个方法执行时，jvm都会创建一个栈帧用于存储局部变量表、操作数栈、动态连接和方法出口等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;本地方法栈&lt;/strong&gt;：存放某些本地方法&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;堆&lt;/strong&gt;：下面有&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;方法区&lt;/strong&gt;：存放Java方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;栈内存溢出场景&#34;&gt;栈内存溢出场景&lt;/h2&gt;
+&lt;p&gt;如果方法的嵌套调用层次太多(如递归调用),随着java栈中的帧的增多，最终导致这个线程的栈中的所有栈帧的大小的总和大于-Xss设置的值，就会有StackOverflowError。&lt;/p&gt;
+&lt;h2 id=&#34;jvm故障处理工具&#34;&gt;JVM故障处理工具&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Jps：虚拟机进程状况工具&lt;/li&gt;
+&lt;li&gt;Jstat：虚拟机统计信息监视工具&lt;/li&gt;
+&lt;li&gt;Jinfo：Java配置信息工具&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;jvm的内存结构eden和survivor比例&#34;&gt;JVM的内存结构，Eden和Survivor比例。&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/f77ac9beb7c4040b0a4ca9cad7570ed4.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;JVM内存结构：堆内存、栈和方法区&lt;/p&gt;
+&lt;p&gt;堆的初始大小为物理内存1/4，上限256M，最大为物理内存一半，上限2GB。（存疑）&lt;/p&gt;
+&lt;p&gt;栈的默认大小为1024KB。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;堆内存：存放大多数的对象实例
+&lt;ul&gt;
+&lt;li&gt;新生代
+&lt;ul&gt;
+&lt;li&gt;Eden&lt;/li&gt;
+&lt;li&gt;survivor(from)&lt;/li&gt;
+&lt;li&gt;survivor(to)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;老生代&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;方法区（堆内存持久代）：存放类信息、常量、静态变量等数据&lt;/li&gt;
+&lt;li&gt;栈：存放局部变量表、操作栈、方法出口等信息
+&lt;ul&gt;
+&lt;li&gt;Java虚拟机栈&lt;/li&gt;
+&lt;li&gt;本地方法栈&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;此外还有程序计数器区域，该区域不会发生OutOfMemoryError.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/ityouknow/p/5610232.html&#34;&gt;JVM内存结构&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;jvm内存划分原理&#34;&gt;JVM内存划分原理&lt;/h2&gt;
+&lt;p&gt;java中最大的特点在于其具备良好的垃圾收集特性。堆内存的分区都是为了更好地执行垃圾回收。&lt;/p&gt;
+&lt;p&gt;整个JVM中的GC的处理机制：对不需要的对象进行标记，而后进行清除。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;老年代的内存空间远大于新生代，进行一次Full GC消耗的时间比MinorGC长得多,所以需要分为Eden和Survivor。Survivor的存在意义，就是减少被送到老年代的对象，进而减少Full GC的发生。&lt;/li&gt;
+&lt;li&gt;新生代中采用&lt;a href=&#34;about:blank&#34;&gt;复制算法&lt;/a&gt;，因为新生代gc比较频繁、对象存活率低，用复制算法在回收时的效率会更高，也不会产生内存碎片。但复制算法的代价就是要将内存折半，为了不浪费过多的内存，就划分了两块相同大小的内存区域survivor from和survivor to。在每次gc后就会把存活对象给复制到另一个survivor上，然后清空Eden和刚使用过的survivor。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;jvm-gc流程及其常用参数&#34;&gt;JVM GC流程及其常用参数&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/460b1a983b63b503831727472a7c6e7d.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/qq_34560242/article/details/81020452&#34;&gt;虚拟机GC流程&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/p/b96d3857ab8f&#34;&gt;JVM常用参数&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;常见垃圾收集器及其特点&#34;&gt;常见垃圾收集器及其特点&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/p/50d5c88b272d&#34;&gt;Java垃圾收集器&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Serial收集器&lt;/li&gt;
+&lt;li&gt;Parnew收集器&lt;/li&gt;
+&lt;li&gt;Parallel Scavenge收集器&lt;/li&gt;
+&lt;li&gt;Serial Old收集器&lt;/li&gt;
+&lt;li&gt;Parallel Old收集器&lt;/li&gt;
+&lt;li&gt;CMS收集器&lt;/li&gt;
+&lt;li&gt;G1收集器&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/43608166&#34;&gt;ZGC&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;g1和cms区别&#34;&gt;g1和cms区别&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Cms收集器：CMS收集器是一种以获取最短回收停顿时间为目标的收集器，基于标记清除算法实现，其运行过程如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;初始标记&lt;/strong&gt;：标记GC roots能直接关联到的对象（stop the world）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;并发标记&lt;/strong&gt;：沿着上个阶段关联到的对象继续查找&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;重新标记&lt;/strong&gt;：修改并发标记期间的标记变化对象记录&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;并发清除&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;G1收集器：具有如下特点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;分代收集，可以不需要其它收集器配合，独立管理JVM堆&lt;/li&gt;
+&lt;li&gt;空间整合，采用标记整理算法实现&lt;/li&gt;
+&lt;li&gt;可预测的停顿
+其步骤也与CMS收集器基本相同&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;CMS和G1区别：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;CMS目标是提供最小停顿时间，G1为提供可预测的停顿。&lt;/li&gt;
+&lt;li&gt;CMS使用标记清除算法实现，G1使用标记整理算法。&lt;/li&gt;
+&lt;li&gt;CMS仅提供对老年代的垃圾处理，G1可以对整个堆进行管理。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a href=&#34;https://juejin.im/post/5dad5621f265da5bab5bda33#heading-4&#34;&gt;JVM回收卡表&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;垃圾回收算法的实现原理&#34;&gt;垃圾回收算法的实现原理&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;判断对象存活算法
+&lt;ol&gt;
+&lt;li&gt;引用计数法：被引用计数器加一，引用失效计数器减一，计数器为零则标为垃圾。无法解决循环引用问题&lt;/li&gt;
+&lt;li&gt;根搜索法（可达性分析法）：基本思路是通过一系列的名为“GC Roots”（引用对象）的对象作为起始点，从这些节点开始向下搜索，搜索所走过的路径称为引用链（Reference Chain），当一个对象到GC
+Roots没有任何引用链相连时，则证明此对象是不可用的。如果reference类型的数据中存储的数值代表的是另外一块内存的起始地址，就称这块内存代表着一个引用。引用有如下分类：
+&lt;ol&gt;
+&lt;li&gt;强引用：不会被回收。如Object obj = new Object()即强引用&lt;/li&gt;
+&lt;li&gt;软引用：内存不够被回收&lt;/li&gt;
+&lt;li&gt;弱引用：下一次垃圾收集被回收&lt;/li&gt;
+&lt;li&gt;虚引用：随时可能被回收&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;垃圾回收算法 (JVM)
+&lt;ol&gt;
+&lt;li&gt;标记-清除算法&lt;/li&gt;
+&lt;li&gt;标记-整理算法&lt;/li&gt;
+&lt;li&gt;复制算法&lt;/li&gt;
+&lt;li&gt;分代收集算法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Jvm使用分代收集算法，新生代中使用复制算法；老年代中使用标记清理或者标记整理算法。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/p/114bf4d9e59e&#34;&gt;Jvm垃圾回收算法&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;类常量的废弃判定&#34;&gt;类、常量的废弃判定&lt;/h2&gt;
+&lt;p&gt;类废弃：&lt;/p&gt;
+&lt;p&gt;1. 实例都已经被回收&lt;/p&gt;
+&lt;p&gt;2. Classloader被回收&lt;/p&gt;
+&lt;p&gt;3. Class对象已经被回收（无法被反射）&lt;/p&gt;
+&lt;p&gt;常量废弃：没有对象引用常量，则标为废弃常量&lt;/p&gt;
+&lt;h2 id=&#34;内存溢出排错机制&#34;&gt;内存溢出排错机制&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.oschina.net/translate/java-out-of-memory-heap-analysis&#34;&gt;Java堆内存溢出分析&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;在虚拟机中添加参数(XX:+HeapDumpOnOutOfMemoryError/XX:HeapDumpPath)，获取JVM堆内存使用情况文件。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;分析内存占用-时间表
+&lt;ol&gt;
+&lt;li&gt;尖峰状：正常状态&lt;/li&gt;
+&lt;li&gt;随时间增加：内存泄露&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;分析内存占用饼图&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a href=&#34;https://segmentfault.com/a/1190000017226359&#34;&gt;十种JVM内存溢出的情况&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;根据异常信息确定是哪部分内存溢出：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;堆内存溢出&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;java.lang.OutOfMemoryError:Java heap space （正常溢出）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;适当调整-Xms和-Xmx两个jvm参数&lt;/li&gt;
+&lt;li&gt;调试观察内存使用峰值时程序运行情况，尽量避免大批量使用大号对象&lt;/li&gt;
+&lt;li&gt;提高请求执行速度，早执行垃圾回收&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;堆内存泄漏
+（将引用指向null后，可以减少指向对象的引用，从而方便垃圾回收器回收对象）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;短周期对象被长周期引用持有&lt;/li&gt;
+&lt;li&gt;Set、Map容器使用默认equals方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;垃圾回收超时内存溢出（JVM消耗大量时间执行GC，而回收少量堆内存）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;减少对象生命周期，使JVM能更好进行垃圾回收&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Metaspace内存溢出（系统的代码或引用的第三方包非常多或者通过动态代码生成类加载等方法）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;java.lang.OutOfMemoryError: Metaspace&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;减少第三方包引用&lt;/li&gt;
+&lt;li&gt;检查动态代码生成框架性能&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;直接内存溢出&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;java.lang.OutOfMemoryError: Direct buffer memory（javaNIO框架中经常出现）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;设置参数-XX:MaxDirectMemorySize，并及时clear内存。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;栈内存溢出&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;java.lang.StackOverflowError&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;调高-Xss大小，减少递归调用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;线程空间溢出&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Heap空间设置过大，系统有线程总数限制，程序中控制使用线程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;超出交换区内存溢出&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;数组超限内存溢出&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;系统杀死进程内存溢出&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;类加载器和类加载过程如何打破双亲委派&#34;&gt;类加载器和类加载过程，如何打破双亲委派&lt;/h2&gt;
+&lt;p&gt;JVM三种预定义类型类加载器&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;启动类加载器（JAVA_HOME/lib/）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;其他类加载器&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;扩展类加载器 （JAVA_HOME/lib/ext）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;应用程序类加载器（classpath）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/3afd1fb0f60c22d872a4fa300e75e9ff.png&#34; alt=&#34;&#34;&gt;&lt;img src=&#34;java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/3e420e506fa6d21e52ff156dace4efb7.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;类加载过程：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;加载：通过类的全限定名获取类的方法区运行的数据结构&lt;/li&gt;
+&lt;li&gt;验证：确保class文件符合JVM的要求&lt;/li&gt;
+&lt;li&gt;准备：为static变量分配内存&lt;/li&gt;
+&lt;li&gt;解析：将符号引用转换为直接引用&lt;/li&gt;
+&lt;li&gt;初始化：执行类构造器初始化&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;双亲委派机制：当某个类加载器需要加载某个.class文件时，它首先把这个任务委托给他的上级类加载器，递归这个操作，如果上级的类加载器没有加载，自己才会去加载这个类。&lt;/li&gt;
+&lt;li&gt;打破双亲委派机制：双亲委派机制只是JVM规范要求。自己实现的ClassLoader只要针对某些特殊类自行处理，非处理范围内的类调用super方法即可。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;创建对象的过程&#34;&gt;创建对象的过程&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;加载、验证：当 JVM 遇到字节码 new
+指令时，首先将检查该指令的参数能否在常量池中定位到一个类的符号引用，并检查引用代表的类是否已被加载、解析和初始化，如果没有就先执行类加载。&lt;/li&gt;
+&lt;li&gt;准备：在类加载检查通过后虚拟机将为新生对象分配内存。&lt;/li&gt;
+&lt;li&gt;解析：内存分配完成后虚拟机将成员变量设为零值，保证对象的实例字段可以不赋初值就使用。&lt;/li&gt;
+&lt;li&gt;设置对象头，包括哈希码、GC 信息、锁信息、对象所属类的类元信息等。&lt;/li&gt;
+&lt;li&gt;初始化：执行 init方法，初始化成员变量，执行实例化代码块，调用类的构造方法，并把堆内对象的首地址赋值给引用变量。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;对象分配内存的方式&#34;&gt;对象分配内存的方式&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;指针碰撞：当使用标记-整理算法时，一般使用该方法。被使用过的内存放在一边，空闲的放在另一边，中间放着一个指针作为分界指示器，分配内存就是把指针向空闲方向挪动一段与对象大小相等的距离。&lt;/li&gt;
+&lt;li&gt;空闲列表：当使用标记-清除算法时，可以使用该方法。当Java堆内存不规整，虚拟机必须维护一个列表记录哪些内存可用，在分配时从列表中找到一块足够大的空间划分给对象并更新列表记录。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一般来说，当使用Serial/ParNew收集器时，系统采用指针碰撞；使用CMS时，采用空闲列表。&lt;/p&gt;
+&lt;p&gt;对象在堆内存中的存储布局可分为&lt;strong&gt;对象头、实例数据和对齐填充&lt;/strong&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对象头：占12B。包括对象标记和类型指针。对象标记存储对象自身的运行时数据，类型指针存储对象指向其类型元数据的指针（用于确定其属类）。&lt;/li&gt;
+&lt;li&gt;实例数据&lt;/li&gt;
+&lt;li&gt;对齐填充：将对象大小填充为最小单位的倍数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;并发场景的内存分配&#34;&gt;并发场景的内存分配&lt;/h2&gt;
+&lt;p&gt;一般有两种处理方案：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;同步分配&lt;/strong&gt;：对分配内存空间的动作做同步处理。使用CAS机制实现。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;预分缓冲内存&lt;/strong&gt;：对于每个线程在Java堆中预先分配一小块内存，分配操作在预留内存中进行。当使用完后，再分配新的私有内存。该方案称为TLAB分配。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;java的反射机制&#34;&gt;JAVA的反射机制&lt;/h2&gt;
+&lt;p&gt;Java的反射（reflection）机制是指在程序的运行状态中，可以构造任意一个类的对象，可以了解任意一个对象所属的类，可以了解任意一个类的成员变量和方法，可以调用任意一个对象的属性和方法。
+这种动态获取程序信息以及动态调用对象的功能称为Java语言的反射机制。
+反射被视为动态语言的关键。（可动态获取对象的类，以及类的成员变量和方法）&lt;/p&gt;
+&lt;h2 id=&#34;jvm控制台命令&#34;&gt;JVM控制台命令&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/oChangWen/article/details/52971913&#34;&gt;深入理解JVM&amp;mdash;-JDK的命令行工具&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/3b139de94665bc6d978f198c0f4b3007.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;常用jvm参数&#34;&gt;常用JVM参数&lt;/h2&gt;
+&lt;p&gt;-Xms：初始堆大小&lt;/p&gt;
+&lt;p&gt;-Xmx：最大堆大小&lt;/p&gt;
+&lt;p&gt;-XX:NewSize=n：年轻代大小&lt;/p&gt;
+&lt;p&gt;-XX:NewRatio=n：年轻代和年老代的比值&lt;/p&gt;
+&lt;p&gt;-XX:SurvivorRatio=n：年轻代中Eden区与两个Survivor区的比值。注意Survivor区有两个&lt;/p&gt;
+&lt;p&gt;-XX:MaxPermSize=n：设置持久代大小&lt;/p&gt;
+&lt;p&gt;-Xss1024k：单个线程栈&lt;/p&gt;
+&lt;h2 id=&#34;常见虚拟机参数&#34;&gt;常见虚拟机参数：&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;-server -Xms512m -Xmx512m -Xss1024K&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;-XX:PermSize=256m -XX:MaxPermSize=512m -&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;XX:MaxTenuringThreshold=20XX:CMSInitiatingOccupancyFraction=80 -&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;XX:+UseCMSInitiatingOccupancyOnly。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;依次为初始堆容量，
+最大堆容量，线程栈容量，永久代初始容量，永久代最大容量，垃圾年龄，使用CMS作垃圾回收的开始容量比，使用手动定义初始化开CMS收集。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/redcreen/archive/2011/05/04/2037057.html&#34;&gt;JVM参数设置与分析&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;java编译和执行的过程&#34;&gt;Java编译和执行的过程&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/32453148&#34;&gt;Java代码编译和执行的整个过程&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;编译：编写完源文件之后，程序会先被编译为.class文件。Java编译一个类时，如果这个类所依赖的类还没有被编译，编译器就会先编译这个被依赖的类，然后引用，否则直接引用，这个有点象make。如果java编译器在指定目录下找不到该类所其依赖的类的.class文件或者.java源文件的话，编译器话报“cant find symbol”的错误。编译后的字节码主要分常量池和方法字节码两部分。常量池记录token（名字）和符号引用等，方法字节码存放各方法的字节码。&lt;/li&gt;
+&lt;li&gt;运行：java类运行可分为&lt;strong&gt;类的加载&lt;/strong&gt;和&lt;strong&gt;类的执行&lt;/strong&gt;。类的加载是当程序第一次使用某类时，才去加载类（延迟加载）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;程序运行具体步骤：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;（编译、加载）在编译好java程序得到MainApp.class文件后，在命令行上敲java AppMain。系统就会启动一个jvm进程，jvm进程从classpath路径中找到一个名为AppMain.class的二进制文件，将MainApp的类信息加载到运行时数据区的方法区内，这个过程叫做MainApp类的加载。&lt;/li&gt;
+&lt;li&gt;（执行）然后JVM找到AppMain的主函数入口，开始执行main函数。&lt;/li&gt;
+&lt;li&gt;（延迟加载）main函数的第一条命令是Animal animal = new Animal(&amp;ldquo;Puppy&amp;rdquo;);就是让JVM创建一个Animal对象，但是这时候方法区中没有Animal类的信息，所以JVM马上加载Animal类，把Animal类的类型信息放到方法区中。&lt;/li&gt;
+&lt;li&gt;（分配内存）加载完Animal类之后，Java虚拟机做的第一件事情就是在堆区中为一个新的Animal实例分配内存,然后调用构造函数初始化Animal实例，这个Animal实例持有着指向方法区的Animal类的类型信息（其中包含有方法表，java动态绑定的底层实现）的引用。&lt;/li&gt;
+&lt;li&gt;（调用方法）当使用animal.printName()的时候，JVM根据animal引用找到Animal对象，然后根据Animal对象持有的引用定位到方法区中Animal类的类型信息的方法表，获得printName()函数的字节码的地址。&lt;/li&gt;
+&lt;li&gt;开始运行printName()函数。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;操作系统&#34;&gt;操作系统&lt;/h1&gt;
+&lt;h2 id=&#34;linux系统常见内核参数&#34;&gt;Linux系统常见内核参数&lt;/h2&gt;
+&lt;p&gt;使用sysctl –a查看内核参数。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/xibuhaohao/p/11120380.html&#34;&gt;Linux内核参数说明&lt;/a&gt;
+&lt;a href=&#34;https://blog.csdn.net/ZYC88888/article/details/79001027&#34;&gt;Linux内核参数优化&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;kernel.hostname：设置主机名&lt;/li&gt;
+&lt;li&gt;kernel.ostype：操作系统类型&lt;/li&gt;
+&lt;li&gt;net.ipv4.tcp_fin_timeout：系统默认超时时间&lt;/li&gt;
+&lt;li&gt;net.ipv4.tcp_keepalive_time：keep_alive使用时，tcp发送相关消息的频度，缺省120分钟。&lt;/li&gt;
+&lt;li&gt;net.ipv4.ip_local_port_range：用于向外连接的端口范围。（10000 65536）&lt;/li&gt;
+&lt;li&gt;net.ipv4.tcp_max_syn_backlog：允许的SYN队列长度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;常见系统调用&#34;&gt;常见系统调用&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://c.biancheng.net/view/1196.html&#34;&gt;系统调用的类型&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;文件操作类（设备管理）：creat/open/write/read/close&lt;/li&gt;
+&lt;li&gt;进程类：fork/wait/exit&lt;/li&gt;
+&lt;li&gt;时间类&lt;/li&gt;
+&lt;li&gt;通信类&lt;/li&gt;
+&lt;li&gt;保护类&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;linux下io模型&#34;&gt;Linux下IO模型&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;同步阻塞IO&lt;/strong&gt;：调用后当场返回，可能为error&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;同步非阻塞IO&lt;/strong&gt;：调用后出结果再返回，可能等待&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多路复用IO&lt;/strong&gt;：多IO时，使用一个线程统一轮询所负责的IO，当数据准备好即开始处理&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;信号驱动式IO&lt;/strong&gt;：Socket安装一个信号处理函数，当数据准备好时，进程会收到一个SIGIO信号，可以在信号处理函数中调用I/O操作函数处理数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;异步IO&lt;/strong&gt;：用户进程发出请求后会继续运行，等socket数据准备好以后，内核再会向进程发送通知。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;epoll和poll区别&#34;&gt;epoll和poll区别。&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Poll：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;单个进程可监视的socket有限 （select缺点，已修正）&lt;/li&gt;
+&lt;li&gt;访问描述符时，只要有活跃的socket，就需要遍历所有监视的socket&lt;/li&gt;
+&lt;li&gt;用户空间和内核空间需要传递整体的socket数组，开销很大&lt;/li&gt;
+&lt;li&gt;Poll为水平触发，如果报告了fd后，没有被处理，那么下次poll时会再次报告该fd。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Epoll：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提供边缘触发和水平触发两种工作模式，方便用户去除不需要关心的socket事件&lt;/li&gt;
+&lt;li&gt;没有最大连接数限制&lt;/li&gt;
+&lt;li&gt;只有活跃的连接才会被处理&lt;/li&gt;
+&lt;li&gt;使用mmap文件映射加速内存和内核空间的消息传递&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Epoll相对poll而言，时间开销小，传递空间开销小，传递速度快，提供多种工作模式&lt;/p&gt;
+&lt;h2 id=&#34;常用linux命令&#34;&gt;常用Linux命令&lt;/h2&gt;
+&lt;p&gt;ls/cd/mkdir/cp/pwd/rmdir/rm/mv/vim/cat/tail/grep/tar/gzip/unzip/help/kill/ps/ping/exit/df/top/shutdown/chmod&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;用一行命令查看文件的最后五行 ：tail –n 5 file&lt;/li&gt;
+&lt;li&gt;用一行命令输出正在运行的java进程 ：ps –ef | grep java&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;操作系统线程切换过程&#34;&gt;操作系统线程切换过程&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;保存进程状态；&lt;/li&gt;
+&lt;li&gt;更新PCB；&lt;/li&gt;
+&lt;li&gt;PCB放入等待队列；&lt;/li&gt;
+&lt;li&gt;修改新进程PCB信息，并执行进程；&lt;/li&gt;
+&lt;li&gt;执行完后，从队列中取出旧PCB，恢复进程被切换时的上下文并继续执行；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;线程切换和进程切换的区别：区别在于地址空间。对于线程切换，第1步是不需要做的，第2是进程和线程切换都要做的。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;切换页目录以使用新的地址空间；&lt;/li&gt;
+&lt;li&gt;切换内核栈和硬件上下文；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;常用进程调度算法&#34;&gt;常用进程调度算法&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;先来先服务调度算法&lt;/li&gt;
+&lt;li&gt;短进程优先调度算法&lt;/li&gt;
+&lt;li&gt;时间片轮转法&lt;/li&gt;
+&lt;li&gt;多级反馈队列调度算法&lt;/li&gt;
+&lt;li&gt;优先权调度算法（抢占式、非抢占式）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;各操作系统&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Linux区别实时进程和普通进程，普通进程采用动态优先调度，实时进程采用先来先服务和时间片轮转。&lt;/li&gt;
+&lt;li&gt;Unix使用多级反馈队列调度法，不区别优先级&lt;/li&gt;
+&lt;li&gt;Windows基于线程进行调度，即始终运行优先级最高的就绪线程，同一优先级下使用时间片轮转算法进行调度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;存储管理&#34;&gt;存储管理&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/wang379275614/article/details/13765599&#34;&gt;存储管理之页式、段式、段页式存储&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;分段和分页的区别：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;页是物理单位，是系统管理需要；段是逻辑单位，是用户需要&lt;/li&gt;
+&lt;li&gt;页大小固定；段长度不固定，通常在编译器编译源程序时决定&lt;/li&gt;
+&lt;li&gt;页的地址空间为一维；段的地址空间为二维&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;并发&#34;&gt;并发&lt;/h1&gt;
+&lt;h2 id=&#34;进程和线程的区别&#34;&gt;进程和线程的区别&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/lmule/archive/2010/08/18/1802774.html&#34;&gt;进程和线程的区别&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;守护线程和用户线程&#34;&gt;守护线程和用户线程&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Java中的线程可以分为守护线程和非守护线程。Jvm启动时，除了主线程外，如垃圾收集器、引用处理守护进程等全部为守护线程。守护线程一般用于维护用户线程，优先级较低。（类后台线程）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;新线程会继承创建它的线程的守护状态。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;守护线程有如下特点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;设置守护线程需要事先设置&lt;/li&gt;
+&lt;li&gt;守护线程优先级很低，随时可能发生中断，不应该用于cpu计算及io操作&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Jvm结束时，守护线程会自动消亡&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;线程池不能使用守护线程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;用户级线程和内核级线程&#34;&gt;用户级线程和内核级线程&lt;/h2&gt;
+&lt;p&gt;两者的区别在于线程切换时是否需要内核参与。&lt;/p&gt;
+&lt;p&gt;（txc待补充标记）&lt;/p&gt;
+&lt;h2 id=&#34;进程间通信方式&#34;&gt;进程间通信方式&lt;/h2&gt;
+&lt;p&gt;包括&lt;strong&gt;管道、信号量、共享内存、消息队列&lt;/strong&gt;等等&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;管道：管道是一个内核缓冲区，进程以先进先出的方式从缓冲区存取数据，管道一端的进程顺序的将数据写入缓冲区，另一端的进程则顺序的读出数据。&lt;/li&gt;
+&lt;li&gt;信号：信号是Linux系统中用于进程间互相通信或者操作的一种机制，信号可以在任何时候发给某一进程，而无需知道该进程的状态。例如程序结束信号、定时器信号等&lt;/li&gt;
+&lt;li&gt;共享内存&lt;/li&gt;
+&lt;li&gt;消息队列：消息队列是由消息的链表，存放在内核中并由消息队列标识符标识。消息队列克服了信号传递信息少、管道只能承载无格式字节流以及缓冲区大小受限等缺点。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;多线程的几种实现方式线程安全概念&#34;&gt;多线程的几种实现方式，线程安全概念&lt;/h2&gt;
+&lt;p&gt;Java里实现方式包括：继承Thread类、实现Runnable接口、实现Callable接口。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;线程安全&lt;/strong&gt;：线程安全是多线程编程时的计算机程序代码中的一个概念。
+在拥有共享数据的多条线程并行执行的程序中，线程安全的代码会通过同步机制保证各个线程都可以正常且正确的执行，不会出现数据污染等意外情况。（线程运行时的数据不会被其它的线程修改，导致影响最后结果）。&lt;/p&gt;
+&lt;h2 id=&#34;volatile的原理作用&#34;&gt;volatile的原理作用&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/dolphin0520/p/3920373.html&#34;&gt;volatile关键字解析&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;在多线程编程时，经常会遇到三个问题：原子性问题，可见性问题，有序性问题。&lt;/p&gt;
+&lt;p&gt;在java内存模型中，只保证基本读取和赋值是原子性操作。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;防止重排序&lt;/li&gt;
+&lt;li&gt;实现可见性&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;不能代替锁，volatile不能保证修饰变量在操作时的原子性。此外synchronized能保证操作的原子性和实现可见性。&lt;/p&gt;
+&lt;h2 id=&#34;final的可见性问题&#34;&gt;Final的可见性问题&lt;/h2&gt;
+&lt;p&gt;final 可以保证可见性，被 final修饰的字段在构造方法中一旦被初始化完成，并且构造方法没有把 this引用传递出去，在其他线程中就能看见 final 字段值。&lt;/p&gt;
+&lt;p&gt;但在final变量初始化前后，可能会存在线程访问前后变量值不一致的问题。为了解决该问题，JSR-133中为final域添加了重排序规则。&lt;/p&gt;
+&lt;h2 id=&#34;sleep和wait区别&#34;&gt;sleep和wait区别。&lt;/h2&gt;
+&lt;p&gt;wait()和sleep()的关键的区别在于，wait()是用于线程间通信的，而sleep()是用于短时间暂停当前线程。
+更加明显的一个区别在于，当一个线程调用wait()方法的时候，会释放它锁持有的对象的锁，但是调用sleep()方法的时候，不会释放他所持有的锁。&lt;/p&gt;
+&lt;h2 id=&#34;sleep和sleep0区别&#34;&gt;sleep和sleep(0)区别。&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Sleep(0)：如果线程调度器的可运行队列中有大于或等于当前线程优先级的就绪线程存在，操作系统会将当前线程从处理器上移除，调度其他优先级高的就绪线程运行；如果可运行队列中的没有就绪线程或所有就绪线程的优先级均低于当前线程优先级，那么当前线程会继续执行，就像没有调用Sleep(0)一样。&lt;/li&gt;
+&lt;li&gt;当 timeout &amp;gt; 0时，如：Sleep(1)，会引发线程上下文切换：调用线程会从线程调度器的可运行队列中被移除一段时间，这个时间段约等于timeout 所指定的时间长度。通常情况下，系统的时间精度为 10ms，那么指定任意少于 10 ms但大于 0 ms 的睡眠时间，均会向上求值为 10 ms。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;lock与synchronized区别-&#34;&gt;Lock与Synchronized区别 。&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/e5264512e55a1e9ce2b80e438e1a2f62.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Lock是一个接口，ReentrantLock（可重入锁）已经实现了Lock接口，可以直接使用。&lt;/p&gt;
+&lt;p&gt;一般考虑优先使用synchronized。&lt;/p&gt;
+&lt;h2 id=&#34;synchronized原理常见锁解释&#34;&gt;Synchronized原理，常见锁解释&lt;/h2&gt;
+&lt;p&gt;Synchronized原理：通过保证方法或者代码块在运行时，同一时刻只有一个方法进入临界区来实现同步，同时还可以保证共享变量的内存可见性。&lt;/p&gt;
+&lt;p&gt;在jdk1.6之前，synchronized属于重量级锁，由于直接对应到底层，加锁会涉及到内核态和用户态的转换，所以效率较低；jdk1.6以后，jvm对synchronized进行了大量优化，表现为synchronized会随着锁竞争的情况逐渐升级，&lt;strong&gt;锁升级由低到高分别为无锁、偏向锁、轻量级锁和重量级锁&lt;/strong&gt;。为保证锁获得和释放的效率，锁不可降级。此外，synchronized中引入了自适应自旋、锁消除、锁粗化、轻量锁和重量锁。&lt;/p&gt;
+&lt;p&gt;重排序：所有的动作都可以为了优化而打乱顺序，但是必须保证它们重排序后的结果和程序代码本身的应有结果是一致的。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;自旋锁：让该线程等待一段时间，不会被立即挂起，看持有锁的线程是否会很快释放锁。避免频繁阻塞和唤醒线程。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;适应自旋锁&lt;/strong&gt;：指锁的自旋的次数不再是固定的，它是由前一次在同一个锁上的自旋时间及锁的拥有者的状态来决定。&lt;/li&gt;
+&lt;li&gt;锁消除：当JVM检测到某变量不会出现共享数据竞争时，可以消除掉加锁操作。&lt;/li&gt;
+&lt;li&gt;锁粗化：将多个连续的加锁、解锁操作连接在一起，扩展成一个范围更大的锁。&lt;/li&gt;
+&lt;li&gt;偏向锁：即锁会偏向于当前已经占有锁的线程，用以减少锁在线程间来切换的开销。&lt;/li&gt;
+&lt;li&gt;重量级锁：也称监视器锁。直接对应于底层的互斥量。因为涉及系统调用和用户态切换等，成本较高。&lt;/li&gt;
+&lt;li&gt;轻量级锁：不依赖于底层，减少加锁成本的锁。适合于少量锁竞争的场合。&lt;/li&gt;
+&lt;li&gt;可重入锁：可反复加锁。&lt;/li&gt;
+&lt;li&gt;公平锁/非公平锁：每个线程抢占锁的顺序是否为先后调用lock方法的顺序依次获取锁，类似于排队吃饭。（非公平锁会有再次CAS抢锁的机会）&lt;/li&gt;
+&lt;li&gt;乐观锁/悲观锁：取数据时以最坏或最好情况考虑。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;原子类&#34;&gt;原子类&lt;/h2&gt;
+&lt;p&gt;包括以下几种：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;AtomicBoolean: boolean类型原子类&lt;/li&gt;
+&lt;li&gt;AtomicInteger: int类型原子类&lt;/li&gt;
+&lt;li&gt;AtomicLong: long类型原子类&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;原子类使用循环CAS操作实现。CAS操作内部实现原理是缓存锁，在其操作期间，会修改对应操作对象的内存地址。同时其会保证各个处理器的缓存是一致的，如果处理器发现自己的数据对应的内存地址被修改，就会将当前缓存的数据处理为无效，同时该处理器会重新从系统内存中把数据处理到缓存中。&lt;/p&gt;
+&lt;h2 id=&#34;juc并发工具&#34;&gt;JUC并发工具&lt;/h2&gt;
+&lt;p&gt;JUC即java.util.concurrent。里面包括：Lock类、atomic类、sync类（同步器）、collections类、executors线程池类&lt;/p&gt;
+&lt;h2 id=&#34;java线程池&#34;&gt;Java线程池&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://juejin.im/post/6844903889678893063&#34;&gt;Java线程池解析&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/ac65e1172acf121c6c1cb3900948a6bc.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;通过重用存在的线程，来减少线程创建、消亡的开销。&lt;/p&gt;
+&lt;p&gt;Executors类创建线程池方法&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程。&lt;/li&gt;
+&lt;li&gt;newFixedThreadPool创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待。&lt;/li&gt;
+&lt;li&gt;newScheduledThreadPool 创建一个定长线程池，支持定时及周期性任务执行。&lt;/li&gt;
+&lt;li&gt;newSingleThreadExecutor创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺序(FIFO,LIFO, 优先级)执行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ThreadPoolExecutor参数含义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;coreSize：当线程池中线程数未达coreSize时，不管现有线程是否空闲都会新建线程。&lt;/li&gt;
+&lt;li&gt;maxSize：线程数达到该值时继续添加任务就会触发RejectedExecutionHandler。&lt;/li&gt;
+&lt;li&gt;keepAliveTime - 当线程数大于核心时，为终止前多余的空闲线程等待的最长时间。用以在线程池使用较少时减少资源消耗。&lt;/li&gt;
+&lt;li&gt;workQueue - 用来储存等待执行任务的队列。&lt;/li&gt;
+&lt;li&gt;handler - 拒绝策略。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Java线程池注意：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Executors类创建线程池时，其实就是调用ThreadPoolExecutor类构造方法实现。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在创建了线程池后，默认情况下，线程池中并没有任何线程，等到有任务来才创建线程去执行任务，当创建的线程数等于corePoolSize时，会加入设置的阻塞队列。当队列满时，会创建线程执行任务直到线程池中的数量等于maximumPoolSize。若线程数量已达到maxsize，则会触发handler方法执行拒绝策略。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用线程池时，尽量使用ThreadPoolExecutor创建。NewCachedThreadPool对线程数没有限制，NewFixedThreadPool和newSingleThreadExecutor对阻塞队列长度没有限制（两线程程使用无界队列构造）。使用上述方法创建的线程池都有耗尽内存引发OOM的风险。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;FixedThreadPool阻塞队列是无界队列，永远不会拒绝任务。singleThreadExecutor相同，但其coreSize固定为1。&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CachedThreadPool可以无限扩大线程数量，coreSize为0，maxSize为无限大。KeepAliveTime为60s。使用SynchronousQueue装任务，即任务一到当场开始处理。&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SchduledFutureTask使用DelayQueue（封装了PriorityQueue，根据时间顺序处理），任务执行结束后会再次放回队列定时执行。&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;线程池中使用阻塞队列来保存待处理任务。SynchronousQueue即存即取（无缓存），linkedBlockingQueue可缓存任务。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;java阻塞队列&#34;&gt;Java阻塞队列&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;ArrayBlockQueue&lt;/strong&gt;：一个由数组支持的有界阻塞队列。此队列按FIFO（先进先出）原则对元素进行排序。创建其对象必须明确大小，像数组一样。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LinkedBlockQueue&lt;/strong&gt;：一个可改变大小的阻塞队列。此队列按FIFO（先进先出）原则对元素进行排序。创建其对象如果没有明确大小，默认值是Integer.MAX_VALUE。链接队列的吞吐量通常要高于基于数组的队列，但是在大多数并发应用程序中，其可预知的性能要低。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PriorityBlockingQueue&lt;/strong&gt;：类似于LinkedBlockingQueue，但其所含对象的排序不是FIFO，而是依据对象的自然排序顺序或者是构造函数所带的Comparator决定的顺序。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SynchronousQueue&lt;/strong&gt;：同步队列。同步队列没有任何容量，每个插入必须等待另一个线程移除，反之亦然。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;线程池关闭方式&#34;&gt;线程池关闭方式&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;关闭线程：
+&lt;ul&gt;
+&lt;li&gt;sleep：系统直接关闭线程&lt;/li&gt;
+&lt;li&gt;interrupt：给线程打上中断标记，由线程自主关闭。（若在运行状态，则仅将中断标记设为True；若在休眠状态wait、sleep、io则会退出阻塞并抛出InterruptedException）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;关闭线程池：
+&lt;ul&gt;
+&lt;li&gt;shutdownNow：线程池拒接收新提交的任务，同时立刻关闭线程池并结束线程池内任务&lt;/li&gt;
+&lt;li&gt;shutdown：线程池停止接收新任务，线程池内任务执行完毕后关闭线程池&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;三个线程循环打印abc三个字母&#34;&gt;三个线程循环打印abc三个字母&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;每个线程只打印一种字母：设置一个当前打印序号变量，给对象加锁。建立三个线程，分别根据打印序号变量执行打印任务ABC。若获取到锁的对象发现并非轮到自己打印，则睡眠。当有线程成功打印字母后，就唤醒其它线程。&lt;/li&gt;
+&lt;li&gt;每个线程可以打印多种字母：设置当前打印序号变量，给变量加锁。建立三个线程，根据当前打印序号变量执行打印任务。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;threadlocal&#34;&gt;ThreadLocal&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;作用：ThreadLocal提供了线程的局部变量，每个线程都可以通过set()和get()来对这个局部变量进行操作，但不会和其他线程的局部变量进行冲突，实现了线程的数据隔离。&lt;/li&gt;
+&lt;li&gt;原理：ThreadLocal中数据存储在内部类ThreadLocalMap中，每个线程均含有一个ThreadLocalMap类型的成员变量threadLocals，它存储本线程中所有ThreadLocal对象及其对应的值。即获取ThreadLocal实际是获取线程的threadLocals变量。
+（Thread为每个线程维护了ThreadLocalMap这么一个Map，而ThreadLocalMap的key是LocalThread对象本身，value则是要存储的对象）&lt;/li&gt;
+&lt;li&gt;注意：&lt;strong&gt;可能引起内存泄露。因为ThreadLocal是弱引用，而Entry的value是强引用。因此当ThreadLocal被回收后，value并不会被释放。&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;**ThreadLocalMap中不使用链表结构解决冲突，而是使用线性探测的方法。**即遇到碰撞时使用固定算法寻找一定步长的下个位置，直到找到能够存放的位置。（线性探测法）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;交替锁实现并发安全链表&#34;&gt;交替锁实现并发安全链表&lt;/h2&gt;
+&lt;p&gt;使用交替锁，增删改分别对涉及到的节点加锁。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;增加、删除：对涉及的前后两个节点加锁&lt;/li&gt;
+&lt;li&gt;修改：对修改的当前节点加锁&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;无锁数据结构&#34;&gt;无锁数据结构&lt;/h2&gt;
+&lt;p&gt;主要包括原子类Atomic及JUC，原子类主要通过CAS实现，Lock、Semaphore、ReentrantLock等主要通过AQS实现&lt;/p&gt;
+&lt;h2 id=&#34;java同步机制wait和notify&#34;&gt;java同步机制wait和notify。&lt;/h2&gt;
+&lt;p&gt;当线程执行wait()时，会把当前的锁释放，然后让出CPU，进入等待状态。&lt;/p&gt;
+&lt;p&gt;当执行notify/notifyAll方法时，会唤醒一个处于等待该对象锁
+的线程，然后继续往下执行，直到执行完退出对象锁锁住的区域（synchronized修饰的代码块）后再释放锁。&lt;/p&gt;
+&lt;h2 id=&#34;cas机制aba问题&#34;&gt;CAS机制，ABA问题。&lt;/h2&gt;
+&lt;p&gt;CAS 操作包含三个操作数 —— 内存位置（V）、预期原值（A）和新值(B)。如果内存位置的值与预期原值相匹配，那么处理器会自动将该位置值更新为新值。否则，处理器不做任何操作。&lt;/p&gt;
+&lt;p&gt;对CAS涉及的变量增加版本号。&lt;/p&gt;
+&lt;h2 id=&#34;countdownlatch和cyclicbarrier&#34;&gt;countdownlatch和cyclicbarrier&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/dolphin0520/p/3920397.html&#34;&gt;Java并发编程：CountDownLatch、CyclicBarrier和Semaphore&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CountDownLatch：类位于java.util.concurrent包下，利用它可以实现类似计数器的功能。&lt;/li&gt;
+&lt;li&gt;CyclicBarrier：字面意思回环栅栏，通过它可以实现让一组线程等待至某个状态之后再全部同时执行。叫做回环是因为当所有等待线程都被释放以后，CyclicBarrier可以被重用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;abstractqueuedsynchronizer加锁和解锁的流程独占锁和公平锁区别&#34;&gt;AbstractQueuedSynchronizer，加锁和解锁的流程，独占锁和公平锁区别&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://ifeve.com/introduce-abstractqueuedsynchronizer/&#34;&gt;AbstractQueuedSynchronizer的介绍和原理分析&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;AbstractQueuedSynchronizer：AQS提供了一个基于FIFO队列，可以用于构建锁或者其他相关同步装置的基础框架。该同步器利用了一个int来表示状态。使用的方法是继承，子类通过继承同步器并需要实现它的方法来管理其状态，管理的方式就是通过类似acquire和release的方式来操纵状态。然而多线程环境中对状态的操纵必须确保原子性，因此子类需要使用这个同步器提供的以下三个方法对状态进行操作:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;java.util.concurrent.locks.AbstractQueuedSynchronizer.getState()&lt;/li&gt;
+&lt;li&gt;java.util.concurrent.locks.AbstractQueuedSynchronizer.setState(&lt;strong&gt;int&lt;/strong&gt;)&lt;/li&gt;
+&lt;li&gt;java.util.concurrent.locks.AbstractQueuedSynchronizer.compareAndSetState(&lt;strong&gt;int&lt;/strong&gt;,
+&lt;strong&gt;int&lt;/strong&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;独占锁：独占锁锁定的资源只允许进行锁定操作的程序使用，其它任何对它的操作均不会被接受。&lt;/li&gt;
+&lt;li&gt;共享锁：共享锁锁定的资源可以被其它用户读取，但其它用户不能修改它。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;synchronized修饰静态方法和非静态方法区别&#34;&gt;synchronized修饰静态方法和非静态方法区别。&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Synchronized修饰非静态方法，实际上是对调用该方法的对象加锁，俗称“对象锁”。&lt;/li&gt;
+&lt;li&gt;Synchronized修饰静态方法，实际上是对该类对象加锁，俗称“类锁”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;concurrentlinkedqueue和linkedblockingqueue&#34;&gt;ConcurrentLinkedQueue和LinkedBlockingQueue&lt;/h2&gt;
+&lt;p&gt;ConcurrentLinkedQueue为非阻塞队列，使用CAS+自旋操作实现，
+LinkedBlockingQueue为阻塞队列，使用锁机制实现。&lt;/p&gt;
+&lt;p&gt;两者都是线程安全的队列。&lt;/p&gt;
+&lt;h2 id=&#34;线程死锁的原因如何解除线程死锁&#34;&gt;线程死锁的原因，如何解除线程死锁。&lt;/h2&gt;
+&lt;p&gt;原因包括和预防方案包括：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;互斥条件&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;不剥夺条件 （释放资源、重新申请&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;循环等待条件（顺序申请&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;请求和保持条件（一次性申请&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;解除方法：资源剥夺法、撤销进程法&lt;/p&gt;
+&lt;h2 id=&#34;多线程协调方案&#34;&gt;多线程协调方案&lt;/h2&gt;
+&lt;p&gt;JUC工具里有处理多线程协调的类：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Semaphore：设置一定数量的令牌，只有获得令牌的线程才能继续运行。&lt;/li&gt;
+&lt;li&gt;CyclicBarrier：循环栏杆，只有等待线程数到达一定值才会继续运行。&lt;/li&gt;
+&lt;li&gt;CountDownLatch：倒计时栏杆，只有当倒计时达到0时才会继续运行。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;读写锁&#34;&gt;读写锁&lt;/h2&gt;
+&lt;p&gt;ReentrantReadWriteLock：读写锁分为读锁和写锁。多个读锁之间是不需要互斥的，写锁和写锁之间需要互斥。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;ReadWriteLock rwlock = &lt;strong&gt;new&lt;/strong&gt; ReentrantReadWriteLock();&lt;/li&gt;
+&lt;li&gt;rwlock.readLock().lock();&lt;/li&gt;
+&lt;li&gt;rwlock.readLock().unlock();&lt;/li&gt;
+&lt;li&gt;rwlock.writeLock().lock();&lt;/li&gt;
+&lt;li&gt;rwlock.writeLock().unlock();&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;缓存？&lt;/p&gt;
+&lt;h2 id=&#34;jmm概念重排序内存屏障happen-before主内存工作内存等&#34;&gt;JMM概念：重排序，内存屏障，happen-before，主内存，工作内存等。&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/chenyangyao/p/5269622.html&#34;&gt;JVM内存模型相关概念详解&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Java 线程的通信由 JMM 控制，JMM 的主要目的是定义程序中各种变量的访问规则。&lt;/p&gt;
+&lt;p&gt;JMM(java memory model)java内存模型是一种虚拟机规范，用于屏蔽掉各种硬件和操作系统的内存访问差异。JMM规定虚拟机使用计算机内存的方式，保证线程安全等。&lt;/p&gt;
+&lt;p&gt;JMM中所有变量都存储在主内存，而每条线程都有各自的工作内存，工作内存中保存被线程使用的变量的主内存副本。线程对变量的所有操作都必须在工作空间进行，不能直接读写主内存数据。不同线程间无法直接访问对方工作内存中的变量。这样会产生一个不同线程对同一变量访问的同步问题。JMM用于控制和解决这些问题&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;重排序：为了提供性能，处理器和编译器常常会对指令进行重排序。重排序要确保单线程条件下不会影响程序运行结果。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;As-if-serial&lt;/strong&gt;：重排序指令要保证单线程程序的执行结果不能改变。称as-if-serial语义。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;内存可见性：因为缓存中的数据与主内存的数据并不是实时同步的，所以可能在同一时间点，各cpu核心看到的同一地址的值并不相同。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;内存屏障&lt;/strong&gt;：一种CPU指令，用于控制重排序和内存可见性引起的相关问题。即用于保证开始某读写操作前一定先完成一读写操作。Java内存屏障包括：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;LoadLoad屏障&lt;/li&gt;
+&lt;li&gt;StoreStore屏障&lt;/li&gt;
+&lt;li&gt;LoadStore屏障&lt;/li&gt;
+&lt;li&gt;StoreLoad屏障（开销最大，效果最好）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Happens-before&lt;/strong&gt;：是JMM可以向程序员提供跨线程的内存可见性保证的关系，即JMM下所有指令重排都会符合Happens-before关系。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;主内存和工作内存：主内存是所有的线程所共享的内存区域，工作内存是每个线程私有的内存区域。（为获得更好的执行性能，java内存模型允许执行引擎使用高速缓存，及对指令进行重排序。JMM规定所有的变量都存在主内存（类似物理内存）中，但每个线程也都有独立的工作内存（类似高速缓存）。线程对变量的所有操作都必须在工作内存中进行，不能直接对主存进行操作。并且各线程间主存相互独立）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;常见设计模式&#34;&gt;常见设计模式&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/Snailclimb/JavaGuide/blob/master/docs/system-design/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.md&#34;&gt;常见设计模式&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;设计模式可分为：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;创建型：创建对象时隐藏创建逻辑。包括工厂/抽象工厂/单例/建造者/原型模式&lt;/li&gt;
+&lt;li&gt;结构型：通过继承和引用实现创建复杂结构的对象。包括适配器/桥接模式/过滤器/组合/装饰器/外观/享元/代理模式&lt;/li&gt;
+&lt;li&gt;行为型：通过不同的通信方式实现不同行为。包括责任链/命名/解释器/迭代器/中介者/备忘录/观察者/状态/策略/模板/访问者模式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;单例模式、工厂模式、原型模式、代理模式、观察者模式&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;装饰器模式与代理模式（动态代理）区别：java.io 包中，**InputStream字节输入流通过装饰器BufferedInputStream增强为缓冲字节输入流。**这种场景即属于装饰器模式。&lt;/p&gt;
+&lt;p&gt;区别于动态代理，装饰器模式的关注点在于给对象动态添加方法，而动态代理更注重对象的访问控制。动态代理通常会在代理类中创建被代理对象的实例，而装饰器模式会将装饰者作为构造方法的参数。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;适配器模式：适配器模式一般用于将一个类的接口转换成另外一个接口，使得原本由于接口不兼容而不能一起工作的类可以一起工作。java.io包中，&lt;strong&gt;InputStream 字节输入流通过适配器 InputStreamReader 转换为 Reader字符输入流。&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;常见设计原则&#34;&gt;常见设计原则&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/24614363&#34;&gt;设计模式七大基本原则&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;软件实体包括类、函数等&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;单一职责原则：一个软件实体，仅负责一项任务。&lt;/li&gt;
+&lt;li&gt;开放-关闭原则：一个软件实体应当可扩展，但不可被修改。&lt;/li&gt;
+&lt;li&gt;里氏替换原则：子类继承父亲，仅新增，尽量不要修改原功能。&lt;/li&gt;
+&lt;li&gt;依赖倒转原则：避免高层依赖于低层，使实现依赖于接口。&lt;/li&gt;
+&lt;li&gt;接口隔离（分离）原则：尽量分离出接口不必要的功能，形成其它接口。&lt;/li&gt;
+&lt;li&gt;迪米特法则：尽量减少与某个类相关的类数量。&lt;/li&gt;
+&lt;li&gt;组合/聚合复用原则：尽量使用组合/聚合来代替继承。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;算法&#34;&gt;算法&lt;/h1&gt;
+&lt;h2 id=&#34;常见排序方法&#34;&gt;常见排序方法&lt;/h2&gt;
+&lt;p&gt;排序根据是否使用外存来分为内部排序和外部排序。&lt;/p&gt;
+&lt;p&gt;内部排序又可以根据是否需要比较来分为比较排序和非比较排序。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/b2b06480ccee429842d48794b1fb34a8.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;字符串压缩算法&#34;&gt;字符串压缩算法&lt;/h2&gt;
+&lt;p&gt;行程长度压缩、哈夫曼编码压缩&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/qq_27035123/article/details/77943883&#34;&gt;字符串压缩算法&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;常见算法题&#34;&gt;常见算法题&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;细节在note里&lt;/li&gt;
+&lt;li&gt;写完题目后一定要大量测试&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/zigzag-conversion/&#34;&gt;Z字型变换&lt;/a&gt;（二维数组）、&lt;a href=&#34;https://leetcode-cn.com/problems/reverse-integer/&#34;&gt;整数反转&lt;/a&gt;（注意溢出）、&lt;a href=&#34;https://leetcode-cn.com/problems/container-with-most-water/&#34;&gt;盛最多水的容器&lt;/a&gt;（双指针）、&lt;a href=&#34;https://leetcode-cn.com/problems/3sum-closest/&#34;&gt;最接近的三数之和&lt;/a&gt;（固定一数后双指针）、&lt;a href=&#34;https://leetcode-cn.com/problems/reverse-nodes-in-k-group/&#34;&gt;K个一组翻转链表&lt;/a&gt;、&lt;a href=&#34;https://leetcode-cn.com/problems/divide-two-integers/&#34;&gt;两数相除&lt;/a&gt;（位运算作贪心）、&lt;a href=&#34;https://leetcode-cn.com/problems/next-permutation/&#34;&gt;下一个排列&lt;/a&gt;（找下降、处理相同数字）、&lt;a href=&#34;https://leetcode-cn.com/problems/first-missing-positive/&#34;&gt;缺失的第一个正数&lt;/a&gt;（负数在原数组中做标记）、&lt;a href=&#34;https://leetcode-cn.com/problems/permutations-ii/&#34;&gt;全排列
+II&lt;/a&gt;（限制交换）、&lt;a href=&#34;https://leetcode-cn.com/problems/rotate-image/&#34;&gt;旋转图像&lt;/a&gt;（转置后镜像）、&lt;a href=&#34;https://leetcode-cn.com/problems/group-anagrams/&#34;&gt;字母异位词分组&lt;/a&gt;（构造hash）、&lt;a href=&#34;https://leetcode-cn.com/problems/powx-n/&#34;&gt;Pow(x,
+n)&lt;/a&gt;（不要用递归）、&lt;a href=&#34;https://leetcode-cn.com/problems/permutation-sequence/&#34;&gt;第k个排列&lt;/a&gt;、&lt;a href=&#34;https://leetcode-cn.com/problems/edit-distance/&#34;&gt;编辑距离&lt;/a&gt;（动态规划）、&lt;a href=&#34;https://leetcode-cn.com/problems/search-a-2d-matrix-ii/&#34;&gt;搜索二维矩阵&lt;/a&gt;（类二叉树移动指针）、&lt;a href=&#34;https://leetcode-cn.com/problems/binary-tree-inorder-traversal/&#34;&gt;二叉树的中序遍历&lt;/a&gt;（栈记录已遍历过节点）、&lt;a href=&#34;https://leetcode-cn.com/problems/validate-binary-search-tree/&#34;&gt;验证二叉搜索树&lt;/a&gt;（对比子树和父节点）、&lt;a href=&#34;https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/&#34;&gt;重建二叉树&lt;/a&gt;、&lt;a href=&#34;https://leetcode-cn.com/problems/word-break/&#34;&gt;单词拆分&lt;/a&gt;、&lt;a href=&#34;https://leetcode-cn.com/problems/maximal-square/&#34;&gt;最大正方形&lt;/a&gt;（高端DP）、&lt;a href=&#34;https://leetcode-cn.com/problems/find-the-duplicate-number/&#34;&gt;寻找重复数&lt;/a&gt;（剑指）、&lt;a href=&#34;https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/&#34;&gt;最佳买卖股票时机含冷冻期&lt;/a&gt;（三状态DP）、&lt;a href=&#34;https://leetcode-cn.com/problems/water-and-jug-problem/&#34;&gt;水壶问题&lt;/a&gt;（贝祖定理求公约数）、
+&lt;a href=&#34;https://leetcode-cn.com/problems/kth-smallest-element-in-a-sorted-matrix/&#34;&gt;有序矩阵中第K小的元素&lt;/a&gt;（优先队列从左上添加）、
+&lt;a href=&#34;https://leetcode-cn.com/problems/01-matrix/&#34;&gt;01矩阵&lt;/a&gt;（两遍DP）、&lt;a href=&#34;https://leetcode-cn.com/problems/maximum-length-of-repeated-subarray/&#34;&gt;最长重复子数组&lt;/a&gt;（DP）、&lt;a href=&#34;https://leetcode-cn.com/problems/daily-temperatures/&#34;&gt;每日温度&lt;/a&gt;（递增栈）、&lt;a href=&#34;https://leetcode-cn.com/problems/rectangle-overlap/&#34;&gt;矩阵重叠&lt;/a&gt;、&lt;a href=&#34;https://leetcode-cn.com/problems/super-egg-drop/&#34;&gt;鸡蛋掉落&lt;/a&gt;、&lt;a href=&#34;https://leetcode-cn.com/problems/sort-an-array/&#34;&gt;排序数组&lt;/a&gt;（多复习快排）、&lt;a href=&#34;https://leetcode-cn.com/problems/minimum-increment-to-make-array-unique/&#34;&gt;使数组唯一的最小增量&lt;/a&gt;（线性探测）、&lt;a href=&#34;https://leetcode-cn.com/problems/minimum-cost-for-tickets/&#34;&gt;最低票价&lt;/a&gt;、&lt;a href=&#34;https://leetcode-cn.com/problems/best-sightseeing-pair/&#34;&gt;最佳观光组合&lt;/a&gt;、&lt;a href=&#34;https://leetcode-cn.com/problems/find-in-mountain-array/&#34;&gt;山脉数组中查找目标值&lt;/a&gt;、&lt;a href=&#34;https://leetcode-cn.com/problems/delete-nodes-and-return-forest/&#34;&gt;删点成林&lt;/a&gt;、&lt;a href=&#34;https://leetcode-cn.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/&#34;&gt;有效括号的嵌套深度&lt;/a&gt;、&lt;a href=&#34;https://leetcode-cn.com/problems/maximum-performance-of-a-team/&#34;&gt;最大的团队表现值&lt;/a&gt;、&lt;a href=&#34;https://leetcode-cn.com/problems/is-subsequence/&#34;&gt;判断子序列&lt;/a&gt;（贪心）、&lt;a href=&#34;https://leetcode-cn.com/problems/shu-zhi-de-zheng-shu-ci-fang-lcof/&#34;&gt;数值的整数次方&lt;/a&gt;（注意负极值溢出）、&lt;a href=&#34;https://leetcode-cn.com/problems/shu-zi-xu-lie-zhong-mou-yi-wei-de-shu-zi-lcof/&#34;&gt;数字序列中某一位的数字&lt;/a&gt;（细节是魔鬼）、&lt;a href=&#34;https://leetcode-cn.com/problems/palindromic-substrings/&#34;&gt;回文子串&lt;/a&gt;（马拉车算法）、&lt;a href=&#34;https://leetcode-cn.com/problems/ba-shu-zu-pai-cheng-zui-xiao-de-shu-lcof/&#34;&gt;把数组排成最小的数&lt;/a&gt;（剑指原题）、&lt;/p&gt;
+&lt;h1 id=&#34;计算机网络&#34;&gt;计算机网络&lt;/h1&gt;
+&lt;h2 id=&#34;java面试常问计算机网络问题httpsmpweixinqqcomsybqqvdgyuznbfn4hzlp-xq&#34;&gt;&lt;a href=&#34;https://mp.weixin.qq.com/s/YbQqvdgyuznbfn4HZLP-XQ&#34;&gt;Java面试常问计算机网络问题&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://juejin.im/post/5b7be0b2e51d4538db34a51e&#34;&gt;计算机网络面试常见问题&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;http请求相关属性&#34;&gt;http请求相关属性&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Http请求头属性：Accept（期望接收类型）、Referer（请求来源）、Accept-Language（接收语言）、User-Agent（客户端环境）、Content-Type（请求体类型）、Content-Length（请求体长度）、Connection（是否保持连接）、Cookie&lt;/li&gt;
+&lt;li&gt;HTTP响应头属性：Content-Encoding（响应体编码/utf-8）、Content-Type（响应体含类型）、Content-Length（响应体长度）、Content-Location（响应体备用地址）、Content-Language（请求体语言）、Server（服务器类型）&lt;/li&gt;
+&lt;li&gt;总结：长度，编码方式，语言，编码类型，环境&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;tcp连接过程&#34;&gt;TCP连接过程&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/c0571c0e21a80fb9bd85794337f61038.png&#34; alt=&#34;https://pic2.zhimg.com/80/v2-148dec1af2412bc61873b383649bf609_1440w.jpg&#34;&gt;&lt;img src=&#34;java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/165ae8e74e8ce14c8135d87ccd09a5dc.jpg&#34; alt=&#34;preview&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;cookie和session区别&#34;&gt;Cookie和Session区别&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Cookie：是客户端保存用户信息的一种机制，用来记录用户的一些信息，实际上Cookie是服务器在本地机器上存储的一小段文本，并随着每次请求发送到服务器。&lt;/li&gt;
+&lt;li&gt;Session：在计算机中，尤其是在网络应用中，称为“会话控制”。Session对象存储特定用户会话所需的属性及配置信息。当用户请求来自应用程序的 Web页时，如果该用户还没有会话，则 Web 服务器将自动创建一个 Session 对象。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;（存放位置不同）cookie数据存放在客户的浏览器（客户端）上，session数据放在服务器上，但是服务端的session的实现对客户端的cookie有依赖关系的。&lt;/li&gt;
+&lt;li&gt;（安全性）cookie不是很安全，别人可以分析存放在本地的COOKIE并进行COOKIE欺骗，考虑到安全应当使用session。&lt;/li&gt;
+&lt;li&gt;（服务器性能）session会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能。考虑到减轻服务器性能方面，应当使用COOKIE。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;java-servlet简介&#34;&gt;Java servlet简介&lt;/h2&gt;
+&lt;p&gt;Java servlet是一个接口：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/b7a2b7cd823b9b1c01eee7755db0407e.png&#34; alt=&#34;https://pic2.zhimg.com/80/v2-85bf84640fbc6b6e195b9c5b513b918f_1440w.jpg?source=1940ef5c&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;tooken使用&#34;&gt;Tooken使用&lt;/h2&gt;
+&lt;p&gt;授权Auth区别：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Cookie auth：在服务器端创建session，将sessionid交给客户端，用来实现状态管理。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;JWT(json web token)：在服务器认证后，在服务器将用户属性打包生成JSON对象发回。包括header（token属性），payload（存储数据），signature（签名）。有如下优点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;支持跨域访问&lt;/li&gt;
+&lt;li&gt;服务器端不需要存储session，用户信息会随token发过来&lt;/li&gt;
+&lt;li&gt;非浏览器环境不支持cookie，可以使用token认证机制&lt;/li&gt;
+&lt;li&gt;可以解决跨站请求伪造的问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;分布式session管理方案&#34;&gt;分布式session管理方案&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Session复制：通过修改配置，同步所有服务器上保存的session。&lt;/li&gt;
+&lt;li&gt;Session粘滞：通过绑定请求ip，使相同用户的所有请求都发到同一个服务器上。&lt;/li&gt;
+&lt;li&gt;Session集中管理：使用redis等技术集中管理session，所有服务器统一到存储中查取session。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;dns使用协议&#34;&gt;DNS使用协议&lt;/h2&gt;
+&lt;p&gt;同时使用TCP和UDP协议&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DNS 响应报文大于 512 字节时，通过 TC 标志位标记为1，会使用 TCP重新查询一遍。&lt;/li&gt;
+&lt;li&gt;DNS主服务器和辅助服务器之间，进行区域传送时，为了保证稳定以及传输数据太大的原因，也会使用
+TCP 协议传输。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;tcp粘包和拆包&#34;&gt;TCP粘包和拆包&lt;/h2&gt;
+&lt;p&gt;TCP底层并不了解上层业务数据的具体含义，它会根据TCP缓冲区的实际情况进行包的划分，所以在业务上认为，一个完整的包可能会被TCP拆分成多个包进行发送，也有可能把多个小的包封装成一个大的数据包发送，这就是所谓的TCP粘包和拆包问题。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;TCP拆包发生原因&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;应用程序写入字节的大小大于socket发送缓冲区大小&lt;/li&gt;
+&lt;li&gt;应用程序发送数据大小大于MSS(最大数据报文段)，此时会进行MSS大小的TCP分段&lt;/li&gt;
+&lt;li&gt;以太网帧playload大于MTU(通信协议某一层最大允许通过的数据包大小)后，进行IP分片。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;TCP粘包发生原因&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;要发送的数据小于TCP发送缓冲区的大小，TCP将多次写入缓冲区的数据一次发送出去&lt;/li&gt;
+&lt;li&gt;接收数据端的应用层没有及时读取接收缓冲区中的数据&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;粘包拆包解决办法&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;包首部添加长度&lt;/li&gt;
+&lt;li&gt;封装数据包为固定长度&lt;/li&gt;
+&lt;li&gt;给数据包设置边界&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;一次完整的http请求过程&#34;&gt;一次完整的HTTP请求过程&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/38240894&#34;&gt;一次完整的HTTP请求过程&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/296e168d1111718ba271d60f1b03b5d7.jpg&#34; alt=&#34;https://pic4.zhimg.com/80/v2-2c21805795320513b5278e6bcbcb413b_1440w.jpg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;tcp如何保证可靠传输&#34;&gt;TCP如何保证可靠传输&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;确认和重传&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;数据校验&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;数据合理分片和排序&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;流量控制（接收方来不及处理）（作用于接收者）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;滑动窗口（累计确认，根据接收端反馈调整窗口大小）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;拥塞控制（网络拥塞）（作用于网络）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;慢开始，拥塞避免&lt;/li&gt;
+&lt;li&gt;快重传，快恢复&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;uri和url区别&#34;&gt;URI和URL区别&lt;/h2&gt;
+&lt;p&gt;URL是URI的一个子集。
+在《HTTP权威指南》一书中，对于URI的定义是：统一资源标识符；对于URL的定义是：统一资源定位符。
+二者的区别在于，URI表示请求服务器的路径，定义这么一个资源。
+而URL同时说明要如何访问这个资源（http://）。&lt;/p&gt;
+&lt;h2 id=&#34;http缓存&#34;&gt;HTTP缓存&lt;/h2&gt;
+&lt;p&gt;（txc待补充标记）&lt;/p&gt;
+&lt;h2 id=&#34;http和https的区别&#34;&gt;HTTP和HTTPS的区别&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;https协议需要到ca申请证书，一般免费证书较少，因而需要一定费用。&lt;/li&gt;
+&lt;li&gt;http是超文本传输协议，信息是明文传输，https则是具有安全性的ssl加密传输协议。&lt;/li&gt;
+&lt;li&gt;http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。&lt;/li&gt;
+&lt;li&gt;https默认是长连接，http需要使用keep-alive来保证。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;https加密过程&#34;&gt;HTTPS加密过程&lt;/h2&gt;
+&lt;p&gt;https在传统的http和tcp之间加了一层用于加密解密的ssl/tls层（secure sockets layer/transport layer security）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/eabe6fc763b91b8006e351c577defc8f.jpg&#34; alt=&#34;https://user-gold-cdn.xitu.io/2018/1/5/160c5b10d3f27e00?imageslim&#34;&gt;&lt;/p&gt;
+&lt;p&gt;第一次请求的代价很大，之后通信会使用第一次通信的协商密钥。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数字签名：对传输内容进行hash生成摘要，再用私钥对摘要加密，即生成数字签名。数字签名用公钥解密后再与内容hash进行对比，即可得知内容有没有经过修改。&lt;/li&gt;
+&lt;li&gt;数字证书：证书中心（CA）会使用专用私钥对某公钥及公钥相关信息进行加密，生成文件即为数字证书。向证书中心请求拿到数字证书后，使用CA的公钥即可得到通信方的身份确认和真实公钥。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;http
+token：类似于cookie，安卓向服务器发送请求时并不会带上sessionid，所以需要token机制来实现。流程为：客户端发起登录请求，登录成功后，服务器签发一串token。客户端以后访问就带token做身份验证。常见token验证方法有JWT等。&lt;/p&gt;
+&lt;h2 id=&#34;http1x和http20的区别&#34;&gt;HTTP1.X和HTTP2.0的区别&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;1.X解析基于文本，而2.0基于字节。&lt;/li&gt;
+&lt;li&gt;2.0可以实现多路利用，即一个连接中可以混合多个request，在服务端再分开。&lt;/li&gt;
+&lt;li&gt;2.0对header进行了压缩（双方均缓存header fields表，用以减小需要传输的大小）&lt;/li&gt;
+&lt;li&gt;2.0新增了服务端推送功能&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;arp协议内容&#34;&gt;ARP协议内容&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/p/65710069d934&#34;&gt;理解ARP协议&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;数据库&#34;&gt;数据库&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/justloveyou_/article/details/78308460&#34;&gt;数据库常见面试题&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;数据库概念&#34;&gt;数据库概念&lt;/h2&gt;
+&lt;p&gt;存储过程、数据库依赖关系（部分函数依赖，全部函数依赖）、数据库三范式、视图、索引（聚集索引，非聚集索引）、事务、事务隔离级别（未提交读，已提交读，可重复读，可串行化）、悲观锁（先获取锁再执行）、乐观锁（先执行再检查）、（超键，候选键，主键、外键）、SQL约束（NOT NULL，UNIQUE，PRIMARY KEY，FOREIGN KEY，CHECK）、归档模式、Mysql存储引擎（innodb，MyIASM，MEMORY）、mysql权限表、数据库锁、SQL优化&lt;/p&gt;
+&lt;h2 id=&#34;数据库基础定义&#34;&gt;数据库基础定义&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;存储过程：事先编译并保存在数据库中的SQL语句集合。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;事务特性：原子性、隔离性、持久性、一致性（redo/undo log实现acd，锁实现i）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;JDBC关闭auto-commit模式后通过手动提交和异常回滚可实现事务&lt;/li&gt;
+&lt;li&gt;a:atomicity/c:consistency/i:isolation/d:durability&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;数据库三范式：1. 列的原子性 2. 其它属性完全依赖于主键 3.
+非主键之间不能相互依赖&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;数据库隔离级别：未提交读、已提交读、可重复读（innodb
+默认（mysql默认引擎））、可串行化&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;数据库并发事务问题：脏读、不可重复读、幻读&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;触发器：满足定义条件时触发，并执行触发器中定义的语句集合（大量消耗资源）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;数据各种键：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;超键：能唯一确定元组的属性集&lt;/li&gt;
+&lt;li&gt;候选键：不含多余属性的超键&lt;/li&gt;
+&lt;li&gt;主键：由用户确定的用于标识的候选键&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;数据库锁&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;表级锁：开销小，不会出现死锁，冲突可能大&lt;/li&gt;
+&lt;li&gt;行级锁：开销大，可能出现死锁，冲突可能小&lt;/li&gt;
+&lt;li&gt;页级锁：开销在上两者之间，可能出现死锁&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;btree索引和hash索引&#34;&gt;Btree索引和Hash索引&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Btree索引可以用在单行数据查找和范围数据查找，还可以用于非通配符开头的常量&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Hash索引只能用于一次定位数据=，一次定位时效果远好于Btree，但其：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不能用于范围查找&lt;/li&gt;
+&lt;li&gt;联合索引只能使用所有索引&lt;/li&gt;
+&lt;li&gt;无法优化排序操作&lt;/li&gt;
+&lt;li&gt;只能在索引中存储指针，不能直接指向数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;innodb引擎锁算法&#34;&gt;InnoDB引擎锁算法&lt;/h2&gt;
+&lt;p&gt;包括单行锁（Record lock），间隙锁（gap lock），next-key lock。如下图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/13314fd0c273bc3b90833d413a582c2b.jpg&#34; alt=&#34;https://user-gold-cdn.xitu.io/2018/12/11/1679d974b6235f68?imageslim&#34;&gt;&lt;/p&gt;
+&lt;p&gt;使用算法规则如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;不通过索引条件查询时，innodb会锁定表中所有记录。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;通过索引实现行锁。只要索引相同，不同记录都会同时被锁。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;索引为唯一索引时，next-key lock会降级为record lock。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用next-key lock来避免幻读问题。（锁定查找范围内的数据，限制插入）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;InnoDB中若查询索引为唯一索引或主键，则会将next-key Lock降级为record lock。若为辅助索引，不仅会锁住当前范围，还会锁下一键值范围。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/66676020&#34;&gt;InnoDB行锁算法讲解（没看懂）&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;mvcc原理&#34;&gt;MVCC原理&lt;/h2&gt;
+&lt;p&gt;MVCC（Multi Version Concurrency Control），即多版本并发控制。与MVCC相对的，是基于锁的并发控制（Lock-Based Concurrency Control）. InnoDB存储引擎默认隔离级别REPEATABLE READ，通过MVCC解决了幻读的问题。MVCC不能解决幻读问题（&lt;a href=&#34;https://www.jianshu.com/p/cef49aeff36b&#34;&gt;参考&lt;/a&gt;，迷惑）Mysql innoDB中的可重复读并不能保证避免幻读，避免幻读需要应用到加锁读机制next-key lock实现。&lt;/p&gt;
+&lt;p&gt;MVCC使用同时记录多时间点版本的数据来实现并发访问控制。&lt;/p&gt;
+&lt;p&gt;MVCC通过在每行记录后面保存两个隐藏的列来实现的。两个隐藏列分别保存了行的创建时间和过期时间。其中存储的时间为系统版本号。每开始一个新的事务，系统版本号都会自动递增。事务开始时刻的系统版本号会作为事务的版本号，用来和查询到的每行记录的版本号进行比较。&lt;/p&gt;
+&lt;p&gt;MVCC具体操作：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SELECT：InnoDB只查找版本早于当前事务版本的数据行，和版本大于当前事务版本号的删除行（保证事务读取的行在事务开始前已经存在）&lt;/li&gt;
+&lt;li&gt;INSERT：InnoDB新插入的每一行使用当前系统版本号作为行版本号。&lt;/li&gt;
+&lt;li&gt;DELECT：InnoDB删除的每一行使用当前系统版本号作为行版本号。&lt;/li&gt;
+&lt;li&gt;UPDATE：InnoDB更新数据时会先插入一行新数据，使用当前系统版本号作为行版本号。再更新当前系统版本号到原来的行，作行删除标识。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;数据库索引&#34;&gt;数据库索引&lt;/h2&gt;
+&lt;p&gt;索引是对数据库表中一个或多个列的值进行排序的数据结构，以协助快速查询、更新数据库表中数据。索引通常使用b-tree或其变种实现。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;索引的优点&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;加快数据检索速度&lt;/li&gt;
+&lt;li&gt;加速表连接&lt;/li&gt;
+&lt;li&gt;加速分组（GROUP）和排序（ORDER）&lt;/li&gt;
+&lt;li&gt;唯一性索引还可保证每行数据的唯一性&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;索引失效场合（可以避免下列场合来作索引优化）&lt;a href=&#34;https://segmentfault.com/a/1190000013533818&#34;&gt;Mysql索引失效的几种情况&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;以任意匹配符‘%’开头的like语句&lt;/li&gt;
+&lt;li&gt;Or语句前后没有同时存在索引&lt;/li&gt;
+&lt;li&gt;数据类型出现隐式转化&lt;/li&gt;
+&lt;li&gt;多列索引满足最左匹配原则&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;索引创建要求&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;指定非空&lt;/li&gt;
+&lt;li&gt;优先取经常需要搜索、使用where、排序、连接的列&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;B-tree和b+tree区别：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;N棵子树结点中含有n个关键码&lt;/li&gt;
+&lt;li&gt;叶子结点中包含所有关键码信息及指针，叶子结点间相互连接&lt;/li&gt;
+&lt;li&gt;非终端结点为索引部分，仅含有子树根结点中最大或最小关键码&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;B+tree相对b-tree区别：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;B+树磁盘读写代价更低（由于 B+树在非叶子节点上不含数据信息，因此在内存页中能够存放更多的key，数据存放得更加紧密，具有更好的空间利用率，访问叶子节点上关联的数据也具有更好的缓存命中率）&lt;/li&gt;
+&lt;li&gt;数据库中存在大量基于范围的查询，更适合B+树（B+树的叶子结点都是相连的，因此对整棵树的遍历只需要一次线性遍历叶子节点即可）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;数据库优化&#34;&gt;数据库优化&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&amp;amp;mid=2247485117&amp;amp;idx=1&amp;amp;sn=92361755b7c3de488b415ec4c5f46d73&amp;amp;chksm=cea24976f9d5c060babe50c3747616cce63df5d50947903a262704988143c2eeb4069ae45420&amp;amp;token=79317275&amp;amp;lang=zh_CN#rd&#34;&gt;MySQL高性能优化规范建议&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/47155782&#34;&gt;最全SQL优化策略送给你&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Sql语句优化（sql必带where），读写分离（主库写从库读），数据类型，范式，拆分，系统配置&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;使用慢查询日志可以定位执行效率很低的SQL语句。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;数据类型：尽量使用较小的数据类型&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;范式：表设计时符合三范式&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;拆分&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;垂直拆分：可以将不常用字段、大字段、经常使用字段进行独立拆分&lt;/li&gt;
+&lt;li&gt;水平拆分：可以根据id进行hash，根据hash值存表。或者根据表数据实际意义拆表&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;系统配置&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;增加TCP支持的队列数&lt;/li&gt;
+&lt;li&gt;增加innodb缓存池内存innodb_buffer_pool_size及个数innodb_buffer_pool_instances&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;硬件（花钱换cpu，加内存，使固态）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Limit会影响读取速度（limit会重复读取offset+limit前的记录，再根据offset抛弃前方数据）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;mysql逻辑架构&#34;&gt;MySql逻辑架构&lt;/h2&gt;
+&lt;p&gt;第一层是服务器层。主要提供连接处理、授权认证、安全等功能。&lt;/p&gt;
+&lt;p&gt;第二层是 MySQL核心功能层。包括查询解析、分析、优化、缓存以及日期和时间等所有内置函数，所有跨存储引擎的功能都在这一层实现，例如存储过程、触发器、视图等。&lt;/p&gt;
+&lt;p&gt;第三层是存储引擎层。存储引擎负责 MySQL 中数据的存储和提取。服务器通过 API与存储引擎通信，这些API屏蔽了不同存储引擎的差异，使得差异对上层查询过程透明。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;java%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/54d4936c71d12986044026895d72d48f.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;图中每虚线框为一层。&lt;/p&gt;
+&lt;h2 id=&#34;myisam和innodb区别&#34;&gt;MyISAM和InnoDB区别&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;MyISAM不支持事务处理，Innodb支持（InnoDB回滚）&lt;/li&gt;
+&lt;li&gt;MyISAM只有表级锁，InnoDB有行级锁 （MyISAM不适合大并发系统）&lt;/li&gt;
+&lt;li&gt;MyISAM不支持外键&lt;/li&gt;
+&lt;li&gt;MyISAM速度快于InnoDB&lt;/li&gt;
+&lt;li&gt;相对来说：MyISAM适合查多写少，InnoDB适合查少写多&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/zgrgfr/article/details/74455547&#34;&gt;Mysql存储引擎的区别&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;mysql查询执行路径&#34;&gt;Mysql查询执行路径&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;客户端发送一条查询给服务器；&lt;/li&gt;
+&lt;li&gt;服务器先检查该语句是否有权限，若没有直接返回错误信息&lt;/li&gt;
+&lt;li&gt;服务器检查查询缓存，如果命中了缓存，则立即返回存储在缓存中的结果。否则进入下一阶段；&lt;/li&gt;
+&lt;li&gt;服务器端进行SQL解析、预处理，再由优化器生成对应的执行计划；&lt;/li&gt;
+&lt;li&gt;MySQL根据优化器生成的执行计划，调用存储引擎的API来执行查询；&lt;/li&gt;
+&lt;li&gt;将结果返回给客户端。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;数据库联合索引&#34;&gt;数据库联合索引&lt;/h2&gt;
+&lt;p&gt;联合索引也称复合索引，MySQL从左到右使用索引中的字段，一个查询可以只使用索引中的一部分，但只能是最左侧部分，例如有索引(a,b,c)，即可支持a，a|b，a|b|c三种组合进行查找，该特性称为最佳左前缀特性。&lt;/p&gt;
+&lt;h2 id=&#34;drop-delete与truncate区别&#34;&gt;Drop， delete与truncate区别&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Drop删除整张表&lt;/li&gt;
+&lt;li&gt;Delete删除表部分行，执行后需要提交或回滚&lt;/li&gt;
+&lt;li&gt;Truncate删除表所有行，但保存表结构&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;charvarchartext类型的区别&#34;&gt;char，varchar，text类型的区别&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;char(n)，代表字符数最大是n，字符数超过n会被截断。会占用n个字符的空间，即使字符数小于n也会按照n个字符来存，剩下的用空格补齐，但检索的时候尾部空格会被隐藏。N最大255。&lt;/li&gt;
+&lt;li&gt;varchar(n)，代表字符数最大是n，字符数超过n会被截断。如果字符数小于n，则只会占用字符加上1到2字节的空间，加上的几个字节用来存储数据大小。无空间浪费。N最大65535.&lt;/li&gt;
+&lt;li&gt;text(n)，按照字符数量来占用空间，用2字节记录存储数据大小，这2字节不占用text数据的空间。没有空间浪费，但速度慢。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;视图和游标&#34;&gt;视图和游标&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;视图：一种虚拟表，原表列和行的子集，可对视图进行增删改查，一般用于查询。符合要求的修改会被添加到基本表中&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;优点：简化操作，定制数据，安全性&lt;/li&gt;
+&lt;li&gt;缺点：性能差，更新有限制（with check option）&lt;/li&gt;
+&lt;li&gt;编写：create or replace view view_student as select * from student&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;游标：结果集中用于遍历查询结果，类似迭代器&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;binlogredolog和undo-log&#34;&gt;Binlog、redolog和undo log&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://juejin.im/entry/6844903681091977229&#34;&gt;详细分析MySQL事务日志(redo log和undo log)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/f-ck-need-u/p/9001061.html#blog5&#34;&gt;详细分析MySQL日志&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Binlog：也称二进制日志。日志中包含了引起或者可能引起数据库改变（如无匹配行的delete语句）的事件信息，但不包含查询语句。语句以&amp;quot;事件&amp;quot;的形式保存，所以包含了时间、事件开始和结束位置等信息。可以简单认为binlog是包含有执行时间的sql更新语句集合。二进制日志可以用于多节点间的主从同步，也可以从二进制日志中恢复数据库。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Redolog/undolog：两者都属于innodb事务日志。redo log是重做日志，提供前滚操作，undo log是回滚日志，提供回滚操作。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;redo log通常是物理日志，记录的是数据页的物理修改（区别于binlog），它用来恢复提交后的物理数据页，且只能恢复到最后一次提交的位置。&lt;/li&gt;
+&lt;li&gt;undo用来回滚行记录到某个版本。undo log一般是逻辑日志，根据每行记录进行记录。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Redo log和binlog区别&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;binlog是存储引擎的上层产生的，和存储引擎无关。而redolog是在innodb层中产生的。Binlog要先于redolog被记录。&lt;/li&gt;
+&lt;li&gt;binlog记录的是逻辑性的语句，类似于sql语句，而redolog是物理格式上的日志，直接记录数据库中页的修改。&lt;/li&gt;
+&lt;li&gt;二进制日志只在每次事务提交的时候一次性写入缓存中的日志文件。而redolog在数据准备修改前先写入缓存，然后才对缓存中的数据执行修改操作；而且保证在发出事务提交指令时，先向缓存中的redolog写入日志，写入完成后才执行提交动作。&lt;/li&gt;
+&lt;li&gt;Binlog中记录与提交顺序有关，而redolog并发写入，不同事务的记录在日志中会混在一起。&lt;/li&gt;
+&lt;li&gt;Binlog主要用于主从同步和数据库恢复，而redolog实现的是事务层面的重做。两者功能不同。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;mysql主从复制步骤&#34;&gt;Mysql主从复制步骤&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;**在主库上把数据更改记录到二进制日志binlog中。**每次准备提交事务完成数据更新前，主库将数据更新的事件记录到二进制日志中。MySQL会按事务提交的顺序而非每条语句的执行顺序来记录二进制日志，在记录二进制日志后，主库会告诉存储引擎可以提交事务了。&lt;/li&gt;
+&lt;li&gt;**备库将主库的日志复制到自己的中继日志中。**备库首先会启动一个工作的 IO线程，IO线程跟主库建立一个普通的客户端连接，然后在主库上启动一个特殊的二进制转储线程，这个线程会读取主库上二进制日志中的事件。它不会对事件进行轮询。如果该线程追赶上了主库将进入睡眠状态，直到主库发送信号量通知其有新的事件产生时才会被唤醒，备库IO 线程会将接收到的事件记录到中继日志中。&lt;/li&gt;
+&lt;li&gt;**备库读取中继日志中的事件，在备库数据中重放。**当 SQL 线程追赶上 IO线程时，中继日志通常已经在系统缓存中，所以中继日志的开销很低。SQL线程执行的时间也可以通过配置选项来决定是否写入其自己的二进制日志中。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;sql常见语法&#34;&gt;SQL常见语法&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.w3school.com.cn/sql/sql_wildcards.asp&#34;&gt;SQL语法教程&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;其它&#34;&gt;其它&lt;/h1&gt;
+&lt;h2 id=&#34;spring&#34;&gt;Spring&lt;/h2&gt;
+&lt;h3 id=&#34;spring使用技术&#34;&gt;Spring使用技术&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;控制反转/依赖注入（IoC）:通常情况下，由调用者来创建被调用者的实例。但在spring里创建被调用者的工作不再由调用者来完成，因此控制反转（IoC）；创建被调用者实例的工作通常由spring容器来完成，然后注入调用者，因此也被称为依赖注入（DI）。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;优点：由于对象在XML中定义，所以可以在程序运行中更换调用类。实现热插拔&lt;/li&gt;
+&lt;li&gt;缺点：降低运行效率，不易改名&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;面向切面编程（AOP）:
+将日志记录，性能统计，安全控制，事务处理，异常处理等代码从业务逻辑代码中划分出来，通过对这些行为的分离，我们希望可以将它们独立到非指导业务逻辑的方法中，进而改变这些行为的时候不影响业务逻辑的代码。&lt;/p&gt;
+&lt;p&gt;面向切面编程（AOP）就是对软件系统不同关注点的分离，开发者通过拦截方法调用并在方法调用前后添加辅助代码。利用一种称为“横切”的技术，剖解开封装的对象内部，并将那些影响了多了类的公共行为封装到一个可重用的模块，并将其命名为“Aspect”，即切面。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;spring事务&#34;&gt;Spring事务&lt;/h3&gt;
+&lt;p&gt;Spring不会直接管理事务，而是提供了多种事务管理器。将事务管理委托给其它框架来实现。&lt;/p&gt;
+&lt;p&gt;事务管理器PlatformTransactionManager接口如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Public &lt;strong&gt;interface&lt;/strong&gt; PlatformTransactionManager()&amp;hellip;{&lt;/li&gt;
+&lt;li&gt;// Return a currently active transaction or create a new one, according to
+the specified propagation
+behavior（根据指定的传播行为，返回当前活动的事务或创建一个新事务。）&lt;/li&gt;
+&lt;li&gt;TransactionStatus getTransaction(TransactionDefinition definition)
+&lt;strong&gt;throws&lt;/strong&gt; TransactionException;&lt;/li&gt;
+&lt;li&gt;// Commit the given transaction, with regard to its
+status（使用事务目前的状态提交事务）&lt;/li&gt;
+&lt;li&gt;Void commit(TransactionStatus status) &lt;strong&gt;throws&lt;/strong&gt; TransactionException;&lt;/li&gt;
+&lt;li&gt;// Perform a rollback of the given transaction（对执行的事务进行回滚）&lt;/li&gt;
+&lt;li&gt;Void rollback(TransactionStatus status) &lt;strong&gt;throws&lt;/strong&gt; TransactionException;&lt;/li&gt;
+&lt;li&gt;}&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;（Void类型不能实例化，也没有可赋值的实例，只能置其为null）&lt;/p&gt;
+&lt;p&gt;Spring事务管理接口包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;PlatformTransactionManager： （平台）事务管理器&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;这是spring为各个平台提供的事务管理器类，通过getTransaction方法得到事务对象。传入参数类型为TransactionDefinition。该参数类型为事务提供设定属性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;TransactionDefinition： 事务定义信息&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;生成的事务对象提供属性，包括：事务隔离级别、事务传播行为、事务超时时间、事务是否只读、回滚规则（哪些事务会导致回滚）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;TransactionStatus： 事务运行状态&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可以用来获取事务当前的状态，包括是否为新事物，是否有恢复点，是否只回滚，是否已经完成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://juejin.im/post/5b00c52ef265da0b95276091&#34;&gt;可能是最漂亮的Spring事务管理详解&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;spring初始化流程&#34;&gt;Spring初始化流程&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;初始化环境&lt;/li&gt;
+&lt;li&gt;加载配置文件&lt;/li&gt;
+&lt;li&gt;实例化bean&lt;/li&gt;
+&lt;li&gt;调用bean显示信息&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;redis&#34;&gt;Redis&lt;/h2&gt;
+&lt;p&gt;Redis基本特点：远程、基于内存、非关系型数据库、主从同步（从主服务器上向其它服务器同步）&lt;/p&gt;
+&lt;p&gt;Redis应用场景：数据缓存、队列、数据存储、分布式锁、消息系统等&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/Snailclimb/JavaGuide/blob/master/docs/database/Redis/redis-all.md&#34;&gt;Redis常见问题&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;redis客户端调用过程&#34;&gt;Redis客户端调用过程&lt;/h3&gt;
+&lt;p&gt;Redis使用了单线程架构和IO多路复用模型来实现高性能的内存数据库服务。&lt;/p&gt;
+&lt;p&gt;每次客户端调用都经历了发送命令、执行命令、返回结果三个过程。因为 Redis是单线程处理命令的，所以一条命令从客户端到达服务器不会立即执行，所有命令都会进入一个队列中，然后逐个被执行。客户端的执行顺序可能不确定，但是可以确定不会有两条命令被同时执行，不存在并发问题。&lt;/p&gt;
+&lt;h3 id=&#34;redis数据类型&#34;&gt;Redis数据类型&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://database.51cto.com/art/201906/598234.htm&#34;&gt;Redis数据类型底层实现&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://juejin.im/post/5b53ee7e5188251aaa2d2e16#heading-4&#34;&gt;Redis数据结构简介&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;String：动态字节数组，可修改，内部实现类似于ArrayList（Simple dynamic string）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://juejin.im/post/5d70b120e51d453b1d648349&#34;&gt;List&lt;/a&gt;：使用双向链表结构进行存储。首先在列表元素较少的情况下会使用一块连续的内存存储，这个结构是ziplist，也即是压缩列表。它将所有的元素紧挨着一起存储，分配的是一块连续的内存。当数据量比较多的时候才会改成linkedlist（双端链表）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Set：内部也使用hash结构，所有的value都指向同一个内部值。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Hash：使用二维结构，第一维是数组，第二维是链表。除扩容外还实现了缩容，区别于java hashmap，当链表长度过长时，hash中链表结构并不会调整为红黑树。此外，也采用了渐进式rehash来避免迁移时的cpu繁忙。即同时持有两个hash表，每次进行curd操作时，将操作数据写入到新表中。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Sort Set：可以给每一个元素value赋予一个权重score，另一方面它又类似于TreeSet，内部的元素会按照权重score进行排序，可以得到每个元素的名次，还可以通过score的范围来获取元素的列表。&lt;/p&gt;
+&lt;p&gt;内部实现使用了hash和跳跃列表。hash的作用就是关联元素value和权重score，保障元素value的唯一性，可以通过元素value找到相应的score值。跳跃列表的目的在于给元素value排序，根据score的范围获取元素列表。因为跳跃表操作时间复杂度与平衡树大致相等，且维护操作要比平衡树简明，所以这里采用了跳跃表。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;redis发布pub与订阅sub&#34;&gt;Redis发布（pub）与订阅（sub）&lt;/h3&gt;
+&lt;p&gt;SUBSCRIBE、UNSUBSCRIBE和PUBLISH三个命令实现了发布与订阅信息泛型（Publish/Subscribe messaging
+paradigm）， 在这个实现中，发送者（发送信息的客户端）不是将信息直接发送给特定的接收者（接收信息的客户端），而是将信息发送给频道（channel），然后由频道将信息转发给所有对这个频道感兴趣的订阅者。&lt;/p&gt;
+&lt;h3 id=&#34;分布式锁&#34;&gt;分布式锁&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://juejin.im/post/5b16148a518825136137c8db&#34;&gt;程序员小黑讲redis分布式锁&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;数据库使用for update实现对数据库锁的互斥访问&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Redis setnx语句实现分布式锁，需要保证：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Set设置锁指令和expire设置超时指令需要做为原子操作执行&lt;/li&gt;
+&lt;li&gt;将线程id做为锁的键值val传入，判断锁的拥有者&lt;/li&gt;
+&lt;li&gt;释放锁时，判断和释放锁需要做为一个原子操作执行（使用LUA）&lt;/li&gt;
+&lt;li&gt;需要给锁添加守护线程，当访问线程正常运行但锁时间到达时，守护线程给锁延时20s&lt;/li&gt;
+&lt;li&gt;分布式情况下，为了防止各服务器间锁不一致，需要使用&lt;a href=&#34;https://zhuanlan.zhihu.com/p/40915772&#34;&gt;redLock&lt;/a&gt;技术。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ZooKeeper实现分布式锁：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;生成一个lock节点，所有需要抢锁的线程都会在这个节点下生成顺序子节点&lt;/li&gt;
+&lt;li&gt;按照各线程生成的节点编号来顺序获得锁，结束运行后当前线程删除节点&lt;/li&gt;
+&lt;li&gt;所有的线程都会向当前顺序位节点添加监视器，当节点被删除时，生成下一个节点的线程获得锁开始运行&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;redis持久化&#34;&gt;Redis持久化&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://juejin.im/post/5b70dfcf518825610f1f5c16&#34;&gt;Redis持久化原理&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;RDB：在 指定时间间隔内对数据进行快照存储&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Redis之前版本都是单线程运行，为了存储redis快照，会调用fork函数产生子进程，使用子进程来对快照持久化进行处理。同时使用COW机制（父子进程均只读时，内存页正常；当有写时，触发中断复制当前页）来分享数据段页面。即复制一份待保存页面，用于持久化。但因为每次运行都要创建子线程，属于重量级操作，执行成本过高。&lt;/li&gt;
+&lt;li&gt;RDB是一个紧凑压缩的二进制文件，是redis在某个时间点上的数据快照。Redis加载RDB恢复数据远远快于AOF的方式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;AOF：记录每次对服务器写的操作，当服务器重启时会重新执行这些命令来恢复数据。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;程序写AOF文件时，先写入一个内存缓冲区，每隔1s左右将缓冲区刷到磁盘。当AOF文件过大时，需要定期对AOF文件进行重写来达到压缩的目的。&lt;/li&gt;
+&lt;li&gt;Redis优先从AOF中恢复数据，没有再从RDB中恢复。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;redis主从同步&#34;&gt;Redis主从同步&lt;/h3&gt;
+&lt;p&gt;Redis主从同步主要分为两个步骤：同步（同步主从服务器数据库状态）和命令传播（同步完成后，从服务器需要重新执行主服务器执行的写命令）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;同步：从服务器向主服务器发送同步请求，主服务器生成rdb文件发还给从服务器。并缓冲从当时刻开始的写命令。&lt;/li&gt;
+&lt;li&gt;命令传播：从服务器重新执行主服务器缓冲区命令，使服务器状态保持一致。（主从服务器保存当前状态下的缓冲命令偏移号，就可以知道从服务器需要从哪里开始同步命令）&lt;/li&gt;
+&lt;li&gt;反复执行命令传播，就可以保证主从同步。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;redis存在问题&#34;&gt;Redis存在问题&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;缓存雪崩：由于原有缓存失效，新缓存未到期间(例如：我们设置缓存时采用了相同的过期时间，在同一时刻出现大面积的缓存过期)，所有原本应该访问缓存的请求都去查询数据库了，而对数据库CPU和内存造成巨大压力。解决方案：加锁、设置缓存标记及时更新数据（脏读）、设置不同缓存失效时间、二级缓存&lt;/li&gt;
+&lt;li&gt;缓存穿透：指用户查询数据，在数据库没有，自然在缓存中也不会有。这样就导致用户查询的时候，在缓存中找不到，每次都要去数据库再查询一遍，然后返回空（相当于进行了两次无用的查询）。这样请求就绕过缓存直接查数据库，这也是经常提的缓存命中率问题。解决方案：采用布隆过滤器、短时间内缓存保存空结果&lt;/li&gt;
+&lt;li&gt;缓存预热：指系统上线前，提前将相关缓存数据直接加载到缓存系统中。&lt;/li&gt;
+&lt;li&gt;缓存降级：延迟？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;redis过期淘汰策略&#34;&gt;Redis过期淘汰策略&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://juejin.im/post/6844903953092575246&#34;&gt;Redis的过期策略及内存淘汰机制&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;redis集群模式&#34;&gt;Redis集群模式&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://segmentfault.com/a/1190000022808576&#34;&gt;你了解 Redis 的三种集群模式吗？&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Redis支持三种集群方案&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;主从复制模式：读写分离。主从初连接时进行全量同步，同步结束后对每条命令进行增量同步。&lt;/li&gt;
+&lt;li&gt;哨兵模式：可自动恢复的主从复制模式，使用哨兵进程监督主服务器是否下线，若下线则使用订阅模式，令所有被哨兵模式监控的从服务器切换主机。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cluster模式&lt;/strong&gt; ：引入hash slot，每个key通过CRC16校验后对16384来确定负责的节点。同时也引入主从复制模式。Cluster模式可以支持分布式存储，减少内存消耗。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;一致性hash算法&#34;&gt;一致性Hash算法&lt;/h3&gt;
+&lt;p&gt;为了提高缓存命中率，分布式系统中经常会将客户端通过hash与服务器绑定。为了保证服务器数量发生增加或者减小时，客户端仍能访问到对应的服务器。可以使用一致性Hash算法。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/34985026&#34;&gt;什么是一致性hash算法&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;即将hash后将服务器和客户端均映射到0-2^32-1的地址中，客户端会访问顺时针方向最近的服务器。&lt;/p&gt;
+&lt;p&gt;当服务器数量过少时，为了防止服务器负载不均，可以在环中加入虚拟节点。&lt;/p&gt;
+&lt;h2 id=&#34;mybatis&#34;&gt;MyBatis&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://juejin.im/post/6844903574531653645&#34;&gt;MyBatis入门看这一篇就够了&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;MyBatis是ORM（Object Relational Mapping）的一种实现框架，是对JDBC的一种封装。&lt;/p&gt;
+&lt;h3 id=&#34;mybatis工作流程&#34;&gt;MyBatis工作流程&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://juejin.im/post/5aa5c6fb5188255587232e5a#heading-10&#34;&gt;Mybatis实现CURD操作&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;创建Mybatis配置文件，配置数据库相关的登录信息&lt;/li&gt;
+&lt;li&gt;配置对象类与表的映射关系&lt;/li&gt;
+&lt;li&gt;编写标签，对应标签id和需要调用的sql语句&lt;/li&gt;
+&lt;li&gt;在程序中连接sqlsession&lt;/li&gt;
+&lt;li&gt;调用sqlsession方法curd数据库（mybatis调用方法后需要commit）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;mybatis实现动态sql&#34;&gt;MyBatis实现动态SQL&lt;/h3&gt;
+&lt;p&gt;动态SQL即自动拼接SQL语句，在映射配置文件中使用标签生成SQL语句。&lt;/p&gt;
+&lt;h3 id=&#34;mybatis核心组件&#34;&gt;MyBatis核心组件&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;SqlSessionFactoryBuilder：根据配置来生成SqlSessionFactory 主要需要在XML中配置数据库类型，URL，用户名和密码等&lt;/li&gt;
+&lt;li&gt;SqlSessionFactory：采用工厂模式生成SqlSession&lt;/li&gt;
+&lt;li&gt;SqlSession：可以发送SQL语句返回结果。使用factory.openSession()方法构建，有commit/rollback/close等方法&lt;/li&gt;
+&lt;li&gt;SQL Mapper：由java接口和xml文件构成，给出sql语句和id的映射规则后可以调用sql并返回结果&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;mybatis常用标签&#34;&gt;MyBatis常用标签&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/tiguer/article/details/80812232&#34;&gt;MyBatis常用标签&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;定义sql语句&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Select（查询）、insert（插入）、delete（删除）、update（更新）&lt;/li&gt;
+&lt;li&gt;ResultMap（建立resultset查询结果和java类属性的映射关系）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;动态sql&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;If（根据test确定是否加入text）、foreach（迭代加入sql）、choose（类switch）、where（更好地控制where选择）、set（更好控制update时地插入）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;和区别&#34;&gt;${}和#{}区别&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;#{}填入SQL语句时可能会加入引号；${}则不会。&lt;/li&gt;
+&lt;li&gt;#类似于JDBC中的PreparedStatement（创建SQL查询时可以在语句中加？再依次传入参数替换），会先处理为?，后才会代入参数；${}则只是简单替换。&lt;/li&gt;
+&lt;li&gt;能使用#{}的地方尽可能使用，可能有效防止SQL注入。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;zookeeper&#34;&gt;Zookeeper&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/liyiming2017/article/details/83035157&#34;&gt;原创ZooKeeper入门实战教程（一）-介绍与核心概念&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;zookeeper节点&#34;&gt;Zookeeper节点&lt;/h3&gt;
+&lt;p&gt;Zookeeper通常用于作为分布式系统的分布式协同服务。主要使用共享存储来做分布式系统的协调。即使用数据节点znode来保存信息。Zookeeper数据节点根节点上包括4个子节点。分别为：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Master：存储主节点信息&lt;/li&gt;
+&lt;li&gt;Workers：子节点下存储各个从节点的数据&lt;/li&gt;
+&lt;li&gt;Tasks：子节点下存储任务数据&lt;/li&gt;
+&lt;li&gt;Assign：子节点下存储各个从节点的任务集合&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;节点分为持久节点和临时节点：持久节点必须手动delete删除；临时节点在其创建者失联后关闭。&lt;/p&gt;
+&lt;p&gt;有序节点：被声明为有序节点的节点在分配时会给予一个唯一的单调递增的证书。&lt;/p&gt;
+&lt;p&gt;Zookeeper中采用通知的机制监测znode变化。客户端可以在特定znode设置观察点，当znode发生变化即会触发通知，观察点触发一次后即会失效。&lt;/p&gt;
+&lt;p&gt;Zookeeper使用版本号来控制多客户端同步访问&lt;/p&gt;
+&lt;h3 id=&#34;zookeeper角色&#34;&gt;Zookeeper角色&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Leader：负责实际工作，及维护与其它节点的心跳。（所有的写操作必须要通过Leader 完成再由 Leader 将写操作广播给其它服务器。 只要有超过半数节点（不包括observeer 节点） 写入成功，该写请求就会被提交）&lt;/li&gt;
+&lt;li&gt;Follower：响应leader心跳，follower可处理读请求，转交Leader写请求，并对写请求投票。&lt;/li&gt;
+&lt;li&gt;Observer：响应leader心跳，follower可处理读请求，转交Leader写请求。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;zookeeper事务编号&#34;&gt;Zookeeper事务编号&lt;/h3&gt;
+&lt;p&gt;ZAB （ ZooKeeper Atomic Broadcast , ZooKeeper 原子消息广播协议） 协议的事务编号Zxid设计中， Zxid 是一个 64 位的数字，其中低 32 位是一个简单的单调递增的计数器，针对客户端每一个事务请求，计数器加 1；而高 32 位则代表 Leader 周期 epoch的编号， 每个当选产生一个新的 Leader 服务器，就会从这个 Leader
+服务器上取出其本地日志中最大事务的 ZXID，并从中读取epoch 值，然后加1，以此作为新的 epoch，并将低 32 位从 0 开始计数。&lt;/p&gt;
+&lt;p&gt;高32位用来保证新leader选出后，旧leader的命令不会再起作用。&lt;/p&gt;
+&lt;p&gt;Zab 协议有两种模式：恢复模式（选主）、广播模式（同步）&lt;/p&gt;
+&lt;h2 id=&#34;分布式&#34;&gt;分布式&lt;/h2&gt;
+&lt;h3 id=&#34;分布式事务&#34;&gt;分布式事务&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://xiaomi-info.github.io/2020/01/02/distributed-transaction/&#34;&gt;分布式事务，这一篇就够了&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://juejin.im/post/6844903573667446797#heading-8&#34;&gt;常用分布式系统解决方案&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;分布式事务指事务的参与者、支持事务的服务器、资源管理器分别位于不同的分布式系统的不同节点上。本质上，分布式事务就是为了保证不同数据库中的数据一致性。分为三种一致性：强一致性（在任意时刻，所有节点中的数据是一样的）、弱一致性（数据更新后，后续访问只能访问到部分甚至全部访问不到）、最终一致性（保证在一段时间后，节点的数据最终会达到一致状态）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;CAP原则：分布式系统中，一致性、可用性、分区容错性，只能同时满足两个。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一致性（C）：在分布式系统中的所有数据备份，在同一时刻是否同样的值。（等同于所有节点访问同一份最新的数据副本）&lt;/li&gt;
+&lt;li&gt;可用性（A）：在集群中一部分节点故障后，集群整体是否还能响应客户端的读写请求。（对数据更新具备高可用性）&lt;/li&gt;
+&lt;li&gt;分区容错性（P）：以实际效果而言，分区相当于对通信的时限要求。系统如果不能在时限内达成数据一致性，就意味着发生了分区的情况，必须就当前操作在C 和 A 之间做出选择。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;BASE （Basically Available Soft State Eventual Consistency）理论：即分布式系统中即使无法保证强一致性，也应该采用适合的方式保证最终一致性。BASE 理论本质上是对 CAP 理论的延伸，&lt;strong&gt;是对 CAP 中 AP 方案的一个补充。&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;BA：Basically Available 基本可用，分布式系统在出现故障的时候，允许损失部分可用性，即保证核心可用。&lt;/li&gt;
+&lt;li&gt;S：Soft State 软状态，允许系统存在中间状态，而该中间状态不会影响系统整体可用性。&lt;/li&gt;
+&lt;li&gt;E：Consistency 最终一致性，系统中的所有数据副本经过一定时间后，最终能够达到一致的状态。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;柔性事务：分布式场景下基于BASE理论实现的事务解决方案。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;分布式事务解决方案&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;全局事务（DTP模型）&lt;/li&gt;
+&lt;li&gt;基于可靠消息服务的分布式事务&lt;/li&gt;
+&lt;li&gt;最大努力通知（定期校对）&lt;/li&gt;
+&lt;li&gt;TCC（两阶段型、补偿型）&lt;/li&gt;
+&lt;li&gt;（txc待补充标记）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;简历&#34;&gt;简历&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;相机采集图片：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用被动获取图片方式，将图片保存入带有扫描位置的指定文件夹中，将图片名添加入发送队列，由线程发送&lt;/li&gt;
+&lt;li&gt;相机参数调节：标定，曝光，红黄蓝&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;服务器接收和处理&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Javalin，httpclient每个书架间结束相机采集后，往发送队列ConcurrentLinkedQueue最后添加end。当服务器端设置文件监听事件，当收到end文件后开始调用图片处理程序。传递失败反复重传&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;图片拼接&lt;/li&gt;
+&lt;li&gt;文本检测，书脊分割&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;废弃机制：当遇障返回时，会发送failure放弃当次采集图片。放到data，生成result。维护hashset，记录废弃文件夹，全部去掉。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;结束扫描后，机器人每30s向服务器请求结果，如果result文件夹下面有end文件，即生成结束，返回结果&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;新增错架报表模块&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;根据图书馆提供数据库及机器人扫描结果维护本地数据库，使用MyBatis（txc待补充标记），jxl。扫描后使用jxl生成excel报表发送到运维人员邮箱&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;改进和维护原盘点程序&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;改进rfid识别算法&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;改进错架识别算法，引入更多特征，采集数据集，使用word2vec和tensorflow计算&lt;/li&gt;
+&lt;li&gt;对不定长小格子改进识别方案，求变化最剧烈的部分。（视觉方案，RFID方案）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;CV部分处理&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;图片拼接：求匹配点，图片配准，图片拼接并平滑过渡部分&lt;/li&gt;
+&lt;li&gt;文本检测：修改mobilenet主干网络，引入混合精度训练，加入sin/cos预测，调参&lt;/li&gt;
+&lt;li&gt;书脊分割：LSD，状态dp，文本域区域扩张&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;springboot&#34;&gt;Springboot&lt;/h2&gt;
+&lt;p&gt;Git/lombok/log4j/&lt;/p&gt;
+&lt;h1 id=&#34;待解决问题&#34;&gt;待解决问题&lt;/h1&gt;
+&lt;p&gt;ZGC、redis集群模式&lt;/p&gt;
 </content>
             
             
